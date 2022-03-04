@@ -1,7 +1,5 @@
 from __future__ import print_function
-import time
 import swagger_client
-from swagger_client.rest import ApiException
 from swagger_client.models import PasswordLoginReq
 
 from pprint import pprint
@@ -13,10 +11,13 @@ configuration.host = "https://gateway-banana-dev.chunsutech.com/auth"
 api_instance = swagger_client.SessionApi(swagger_client.ApiClient(configuration))
 x_tenant_type = "client" # str |  来自哪个平台
 
-def test_swagger():
+def phone_login():
     password = "qwer`123" # str |  密码
     phone_number = "8615195927818" # str | 手机号
     body = PasswordLoginReq(phone_number, password)
+    
     api_response = api_instance.password_login(x_tenant_type=x_tenant_type, body=body)
-
-    pprint(api_response)
+    # pprint(api_response)
+    access_token = str(api_response.access)
+    # pprint(access_token)
+    return access_token

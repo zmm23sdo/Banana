@@ -17,6 +17,12 @@ pytest_admin:
 pytest_client:
 	python3 -m pytest -s TestClient
 pytest_services:
-	python3 -m pytest -s TestServices
-
-
+	python3 -m pytest -s TestServices/${file}
+eA:
+	export PYTHONPATH=$$PYTHONPATH:/Users/zhangmingwei/Projects/Banana/AdminApi
+eC:
+	export PYTHONPATH=$$PYTHONPATH:/Users/zhangmingwei/Projects/Banana/ClientApi
+eS:
+	export PYTHONPATH=$$PYTHONPATH:/Users/zhangmingwei/Projects/Banana/ServicesApi
+pts:
+	export PYTHONPATH=$$PYTHONPATH:/Users/zhangmingwei/Projects/Banana/ServicesApi && make pytest_services
