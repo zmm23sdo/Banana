@@ -10,7 +10,7 @@ from pprint import pprint
 
 # Configure API key authorization: apiKey
 configuration = swagger_client.Configuration()
-configuration.host = "https://gateway-banana-dev.chunsutech.com/auth"
+configuration.host = config.URL
 access_token = config.phone_login()
 configuration.api_key['Authorization'] = access_token
 api_instance = swagger_client.SessionApi(swagger_client.ApiClient(configuration))
@@ -23,7 +23,8 @@ def test_get_session_info():
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AuthApi->init_password: %s\n" % e)
-        
+
+#  def test_logout():       
         
         
         

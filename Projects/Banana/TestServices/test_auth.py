@@ -7,7 +7,7 @@ import config
 
 # Configure API key authorization: apiKey
 configuration = swagger_client.Configuration()
-configuration.host = "https://gateway-banana-dev.chunsutech.com/auth"
+configuration.host = config.URL
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 configuration.api_key['Authorization'] = config.phone_login()
