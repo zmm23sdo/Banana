@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/zhangmingwei/Projects/Banana'
-swagger-codegen generate -i ./client.json -l python -o ./ClientApi
-swagger-codegen generate -i ./services.json -l python -o ./ServicesApi
-make: Leaving directory `/Users/zhangmingwei/Projects/Banana'
- 
