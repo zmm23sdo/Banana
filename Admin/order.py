@@ -21,9 +21,9 @@ def create_order(page,product_name):
     page.locator("textarea").fill("test_product_description_000"+str(random.randint(0,9999)))
     
     # Click span[role="button"]:has-text("单击上传")
-    page.locator("span[role=\"button\"]:has-text(\"单击上传\")").click()
+    # page.locator("span[role=\"button\"]:has-text(\"单击上传\")").click()
     # Upload 2040336dd894186ef699715bb88a0ecd.jpg
-    page.locator("span[role=\"button\"]:has-text(\"单击上传\")").set_input_files("/Users/michaelcheung/Desktop/2040336dd894186ef699715bb88a0ecd.jpg")
+    page.set_input_files("input#pic","/Users/michaelcheung/Project/Banana/Admin/test_photo.jpeg")
     
     
     # Click .ant-select-selection-overflow >> nth=0
@@ -57,9 +57,9 @@ def create_order(page,product_name):
     # Click text=PriceRM >> [placeholder="请输入"]
     page.locator("text=PriceRM >> [placeholder=\"请输入\"]").click()
     # Click text=PriceRM >> [placeholder="请输入"]
-    page.locator("text=PriceRM >> [placeholder=\"请输入\"]").click()
+    # page.locator("text=PriceRM >> [placeholder=\"请输入\"]").click()
     # Double click text=PriceRM >> [placeholder="请输入"]
-    page.locator("text=PriceRM >> [placeholder=\"请输入\"]").dblclick()
+    # page.locator("text=PriceRM >> [placeholder=\"请输入\"]").dblclick()
     # Fill text=PriceRM >> [placeholder="请输入"]
     page.locator("text=PriceRM >> [placeholder=\"请输入\"]").fill("100")
     # Click #stock

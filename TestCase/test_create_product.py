@@ -1,7 +1,7 @@
 from Admin import login, order
 import random
 
-username = "mingvtest1"
+username = "mingvtest2"
 password = "qwer`123"
 Random = str(random.randint(0,99))
 product_name = "test_product_name_000"+Random
