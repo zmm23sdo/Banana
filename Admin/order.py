@@ -19,6 +19,13 @@ def create_order(page,product_name):
     page.locator("textarea").click()
     # Fill textarea
     page.locator("textarea").fill("test_product_description_000"+str(random.randint(0,9999)))
+    
+    # Click span[role="button"]:has-text("单击上传")
+    page.locator("span[role=\"button\"]:has-text(\"单击上传\")").click()
+    # Upload 2040336dd894186ef699715bb88a0ecd.jpg
+    page.locator("span[role=\"button\"]:has-text(\"单击上传\")").set_input_files("2040336dd894186ef699715bb88a0ecd.jpg")
+    
+    
     # Click .ant-select-selection-overflow >> nth=0
     page.locator(".ant-select-selection-overflow").first.click()
     # Click text=Tests分组 A >> span >> nth=1
