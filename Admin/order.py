@@ -23,7 +23,7 @@ def create_order(page,product_name):
     # Click span[role="button"]:has-text("单击上传")
     page.locator("span[role=\"button\"]:has-text(\"单击上传\")").click()
     # Upload 2040336dd894186ef699715bb88a0ecd.jpg
-    page.locator("span[role=\"button\"]:has-text(\"单击上传\")").set_input_files("2040336dd894186ef699715bb88a0ecd.jpg")
+    page.locator("span[role=\"button\"]:has-text(\"单击上传\")").set_input_files("/Users/michaelcheung/Desktop/2040336dd894186ef699715bb88a0ecd.jpg")
     
     
     # Click .ant-select-selection-overflow >> nth=0
