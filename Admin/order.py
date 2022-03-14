@@ -92,4 +92,3 @@ def create_order(page,product_name):
     page.locator("button:has-text(\"提 交\")").click()
     
     
-    return product_name
