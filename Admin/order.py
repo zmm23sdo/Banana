@@ -20,10 +20,10 @@ def create_order(page,product_name):
     # Fill textarea
     page.locator("textarea").fill("test_product_description_000"+str(random.randint(0,9999)))
     
-    # Click span[role="button"]:has-text("单击上传")
-    # page.locator("span[role=\"button\"]:has-text(\"单击上传\")").click()
-    # Upload 2040336dd894186ef699715bb88a0ecd.jpg
-    page.set_input_files("input#pic","/Users/michaelcheung/Project/Banana/Admin/test_photo.jpeg")
+    # with page.expect_navigation():
+    page.set_input_files("input#pic","/Users/michaelcheung/Project/Banana/pic.jpeg")
+    # waiting upload file finished:
+    page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > form > div.ant-row.ant-form-item.ant-form-item-has-success > div.ant-col.ant-form-item-control > div.ant-form-item-control-input > div > span > div > div.ant-upload.ant-upload-select.ant-upload-select-picture-card > span").wait_for()
     
     
     # Click .ant-select-selection-overflow >> nth=0
