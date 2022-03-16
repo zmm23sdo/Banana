@@ -1,6 +1,6 @@
 import random
 
-def create_order(page,product_name):
+def create_prouct(page,product_name):
     # Click div[role="menuitem"]:has-text("Commodity")
     page.locator("div[role=\"menuitem\"]:has-text(\"Commodity\")").click()
     # Click a:has-text("Commodity List")
