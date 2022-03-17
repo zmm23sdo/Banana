@@ -2,10 +2,33 @@ import random
 
 
 
-# def create_gropup(page):
+def create_group(page):
 
+    page.goto("https://admin-banana-test.chunsutech.com/dashboard")
+
+    # Click div[role="menuitem"]:has-text("Commodity")
+    page.locator("div[role=\"menuitem\"]:has-text(\"Commodity\")").click()
+
+    # # Click [id="rc-menu-uuid-71645-1-\/commodity-popup"] >> text=Commodity Category
+    # page.locator("[id=\"rc-menu-uuid-71645-1-\\/commodity-popup\"] >> text=Commodity Category").click()
+
+    # Click a:has-text("Commodity Category")
+    page.locator("a:has-text(\"Commodity Category\")").click()
+    # assert page.url == "https://admin-banana-test.chunsutech.com/commodity/category"
+    # Click button:has-text("Create")
+    page.locator("button:has-text(\"Create\")").click()
+    # Click textarea
+    page.locator("textarea").click()
+    # Fill textarea
+    page.locator("textarea").fill("test_group_000"+str(random.randint(0,9999)))
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+    
 
 def create_prouct(page,product_name):
+
+    page.goto("https://admin-banana-test.chunsutech.com/dashboard")
+
     # Click div[role="menuitem"]:has-text("Commodity")
     page.locator("div[role=\"menuitem\"]:has-text(\"Commodity\")").click()
     # Click a:has-text("Commodity List")
@@ -33,8 +56,10 @@ def create_prouct(page,product_name):
     
     # Click .ant-select-selection-overflow >> nth=0
     page.locator(".ant-select-selection-overflow").first.click()
-    # Click text=Tests分组 A >> span >> nth=1
-    page.locator("text=Tests分组 A >> span").nth(1).click()
+    
+    # Click .ant-cascader-checkbox-inner >> nth=0
+    page.locator(".ant-cascader-checkbox-inner").first.click()
+
     # Click .ant-select-selection-overflow >> nth=0
     page.locator(".ant-select-selection-overflow").first.click()
     # Fill text=品牌Warranty Duration请选择Warranty Type请选择Suitable vehicle brand 请选择Suitable vehicle >> [placeholder="请输入"]

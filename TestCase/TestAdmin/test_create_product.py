@@ -7,6 +7,7 @@ Random = str(random.randint(0,99999))
 product_name = "test_product_name_000"+Random
 def test_create_product(page):
     login.login(page, username, password)
+    product.create_group(page)
     product.create_prouct(page,product_name)
     with page.expect_navigation():
         # Go to https://admin-banana-test.chunsutech.com/commodity/list https://admin-banana-test.chunsutech.com/commodity/list
