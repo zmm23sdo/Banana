@@ -1,8 +1,8 @@
 from Admin import login, product
 import random
 
-username = "mingvtest2"
-password = "qwer`123"
+username = "admin"
+password = "qwer@1234"
 Random = str(random.randint(0,99999))
 product_name = "test_product_name_000"+Random
 def test_create_product(page):

@@ -24,6 +24,7 @@ def create_group(page):
     # Click button:has-text("确 认")
     page.locator("button:has-text(\"确 认\")").click()
     
+    
 
 def create_prouct(page,product_name):
 
