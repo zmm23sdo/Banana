@@ -29,8 +29,7 @@ def create_tran(page, tran_name):
     page.goto("https://admin-banana-test.chunsutech.com/dashboard")
     # Click span:has-text("Logistics") >> nth=0
     page.locator("span:has-text(\"Logistics\")").first.click()
-    # Click a:has-text("Logistics Fee Management")
-    page.locator("a:has-text(\"Logistics Fee Management\")").click()
+    # Click a:has-text("Logistics Fee Management")·()
     # assert page.url == "https://admin-banana-test.chunsutech.com/logistics/fee_management"
     # Click button:has-text("Create")
     page.locator("button:has-text(\"Create\")").click()
@@ -51,8 +50,6 @@ def create_tran(page, tran_name):
     # with page.expect_navigation(url="https://admin-banana-test.chunsutech.com/logistics/fee_management"):
     with page.expect_navigation():
         page.locator("button:has-text(\"提 交\")").click()
-
-
 
 def create_prouct(page,product_name):
 
@@ -149,5 +146,6 @@ def create_prouct(page,product_name):
     page.locator("#location").fill("test_point_of_Origin_00001")
     # # Click button:has-text("提 交")
     # page.locator("button:has-text(\"提 交\")").click()
+    with page.expect_navigation():
     # Click text=Save and Publish
-    page.locator("text=Save and Publish").click()
+        page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > form > div.ant-space.ant-space-horizontal.ant-space-align-center > div:nth-child(1) > button").click()
