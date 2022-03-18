@@ -24,7 +24,35 @@ def create_group(page):
     # Click button:has-text("确 认")
     page.locator("button:has-text(\"确 认\")").click()
     
-    
+def create_tran(page, tran_name):
+    # Go to https://admin-banana-test.chunsutech.com/dashboard
+    page.goto("https://admin-banana-test.chunsutech.com/dashboard")
+    # Click span:has-text("Logistics") >> nth=0
+    page.locator("span:has-text(\"Logistics\")").first.click()
+    # Click a:has-text("Logistics Fee Management")
+    page.locator("a:has-text(\"Logistics Fee Management\")").click()
+    # assert page.url == "https://admin-banana-test.chunsutech.com/logistics/fee_management"
+    # Click button:has-text("Create")
+    page.locator("button:has-text(\"Create\")").click()
+    # assert page.url == "https://admin-banana-test.chunsutech.com/logistics/fee_management/create_module"
+    # Fill [placeholder="请输入"]
+    page.locator("[placeholder=\"请输入\"]").fill(tran_name)
+    # Click input[type="radio"] >> nth=0
+    page.locator("input[type=\"radio\"]").first.click()
+    # Click button:has-text("Chosse Delivery Area")
+    page.locator("button:has-text(\"Chosse Delivery Area\")").click()
+    # Check .ant-checkbox-input >> nth=0
+    page.locator(".ant-checkbox-input").first.check()
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+    # Click text=保存
+    page.locator("text=保存").click()
+    # Click button:has-text("提 交")
+    # with page.expect_navigation(url="https://admin-banana-test.chunsutech.com/logistics/fee_management"):
+    with page.expect_navigation():
+        page.locator("button:has-text(\"提 交\")").click()
+
+
 
 def create_prouct(page,product_name):
 
