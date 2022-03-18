@@ -92,17 +92,17 @@ def create_prouct(page,product_name):
     # Double click text=PriceRM >> [placeholder="请输入"]
     # page.locator("text=PriceRM >> [placeholder=\"请输入\"]").dblclick()
     # Fill text=PriceRM >> [placeholder="请输入"]
-    page.locator("text=PriceRM >> [placeholder=\"请输入\"]").fill("100")
+    page.locator("#price").fill("100")
     # Click #stock
     page.locator("#stock").click()
     # Click .ant-input-affix-wrapper.ant-input-affix-wrapper-focused
-    page.locator(".ant-input-affix-wrapper.ant-input-affix-wrapper-focused").click()
+    # page.locator(".ant-input-affix-wrapper.ant-input-affix-wrapper-focused").click()
     # Fill #stock
     page.locator("#stock").fill("100")
     # Click text=Weightkg >> [placeholder="请输入"]
     page.locator("text=Weightkg >> [placeholder=\"请输入\"]").click()
     # Fill text=Weightkg >> [placeholder="请输入"]
-    page.locator("text=Weightkg >> [placeholder=\"请输入\"]").fill("100")
+    page.locator("#weight").fill("100")
     # Click #admin_sku
     page.locator("#admin_sku").click()
     # Fill #admin_sku
@@ -119,7 +119,7 @@ def create_prouct(page,product_name):
     page.locator("#location").click()
     # Fill #location
     page.locator("#location").fill("test_point_of_Origin_00001")
-    # Click button:has-text("提 交")
-    page.locator("button:has-text(\"提 交\")").click()
-    
-    
+    # # Click button:has-text("提 交")
+    # page.locator("button:has-text(\"提 交\")").click()
+    # Click text=Save and Publish
+    page.locator("text=Save and Publish").click()
