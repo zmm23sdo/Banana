@@ -22,7 +22,7 @@ def buy_unlog(page):
     # Click div[role="presentation"] >> text=22222222222222222222
    
    
-    page.locator("div[role=\"presentation\"] >> text=22222222222222222222").click()
+    page.locator("#select_drawer > div:nth-child(4) > div.flex.flex-wrap.gap-2\.5 > div").click()
     # Click #select_drawer div:has-text("Buy Now") >> nth=2
     # with page.expect_navigation(url="https://client-banana-test.chunsutech.com/user?redirection=/shop/item&id=220314751950000001"):
     with page.expect_navigation():
@@ -42,7 +42,7 @@ def buy_unlog(page):
     # Click .rounded.flex.justify-center.items-center.bg-send
     page.locator(".rounded.flex.justify-center.items-center.bg-send").click()
     # Click div[role="presentation"] >> text=22222222222222222222
-    page.locator("div[role=\"presentation\"] >> text=22222222222222222222").click()
+    page.locator("#select_drawer > div:nth-child(4) > div.flex.flex-wrap.gap-2\.5 > div").click()
     # Click #select_drawer div:has-text("Buy Now") >> nth=2
     # with page.expect_navigation(url="https://client-banana-test.chunsutech.com/cart/order"):
     with page.expect_navigation():
