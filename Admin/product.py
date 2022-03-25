@@ -65,8 +65,8 @@ def create_prouct(page,product_name):
     # Fill text=Product Name0 / 120 >> [placeholder="请输入"]
     page.locator("text=Product Name0 / 120 >> [placeholder=\"请输入\"]").fill(product_name)
     page.locator("text=Product Category请选择 >> input[role=\"combobox\"]").click()
-    # Click text=Exterior
-    page.locator("text=Exterior").click()
+    # Click .anticon.anticon-right svg >> nth=0
+    page.locator(".anticon.anticon-right svg").first.click()
     # Click text=Wiper
     page.locator("text=Wiper").click()
     # Click textarea
@@ -100,14 +100,18 @@ def create_prouct(page,product_name):
     page.locator("text=Supplier Warranty").nth(1).click()
     # Click .ant-select.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow >> nth=0
     page.locator(".ant-select.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow").first.click()
-    # Click text=Audi >> nth=1
-    page.locator("text=Audi").nth(1).click()
-    # Click .ant-select.ant-select-status-success.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow
-    page.locator(".ant-select.ant-select-status-success.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow").click()
+
+     # Click .ant-select-dropdown div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active
+    page.locator(".ant-select-dropdown div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active").click()
+     # Click .ant-space-item div div:nth-child(3) .ant-col.ant-form-item-label >> nth=0
+    page.locator(".ant-space-item div div:nth-child(3) .ant-col.ant-form-item-label").first.click()
+    
     # Click .ant-space-item div div:nth-child(4) .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector .ant-select-selection-overflow
     page.locator(".ant-space-item div div:nth-child(4) .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector .ant-select-selection-overflow").click()
-    # Click text=宝马X
-    page.locator("text=宝马X").click()
+   
+    # Click div:nth-child(10) div .ant-select-dropdown div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item
+    page.locator("div:nth-child(10) div .ant-select-dropdown div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item").click()
+
     # Click .ant-select.ant-select-status-success.ant-pro-filed-search-select.pro-field.pro-field-xl.ant-select-focused .ant-select-selector .ant-select-selection-overflow
     page.locator(".ant-select.ant-select-status-success.ant-pro-filed-search-select.pro-field.pro-field-xl.ant-select-focused .ant-select-selector .ant-select-selection-overflow").click()
     # Click text=PriceRM >> [placeholder="请输入"]

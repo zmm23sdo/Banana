@@ -1,3 +1,6 @@
+from Client.login_client import login_client
+
+
 def buy_unlog(page):
    # Go to https://client-banana-test.chunsutech.com/home
     page.goto("https://client-banana-test.chunsutech.com/home")
@@ -49,3 +52,5 @@ def buy_unlog(page):
         page.locator("#select_drawer div:has-text(\"Buy Now\")").nth(2).click()
     # Click text=Place Order
     page.locator("text=Place Order").click()
+
+# def search_buy(page, customer_phone, customer_password):
