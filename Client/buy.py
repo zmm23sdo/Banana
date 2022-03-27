@@ -53,4 +53,22 @@ def buy_unlog(page):
     # Click text=Place Order
     page.locator("text=Place Order").click()
 
-# def search_buy(page, customer_phone, customer_password):
+def search_buy(page, customer_phone, customer_password):
+     # Go to https://client-banana-test.chunsutech.com/home
+    page.goto("https://client-banana-test.chunsutech.com/home")
+    # Click .p-1
+    # with page.expect_navigation(url="https://client-banana-test.chunsutech.com/shop/search"):
+    with page.expect_navigation():
+        page.locator(".p-1").click()
+    # assert page.url == "https://client-banana-test.chunsutech.com/shop/search"
+    # Click [placeholder="Search\ Product"]
+    page.locator("[placeholder=\"Search\\ Product\"]").click()
+    # Fill [placeholder="Search\ Product"]
+    page.locator("[placeholder=\"Search\\ Product\"]").fill("product_name")
+    # Click text=Search
+    page.locator("text=Search").click()
+    # Click .absolute img >> nth=0
+    # with page.expect_navigation(url="https://client-banana-test.chunsutech.com/shop/item?id=220327490780000001"):
+    with page.expect_navigation():
+        page.locator(".absolute img").first.click()
+    # buy()
