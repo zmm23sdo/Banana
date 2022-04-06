@@ -90,31 +90,35 @@ def create_prouct(page,product_name):
     page.locator(".ant-select-selection-overflow").first.click()
     # Fill text=品牌Warranty Duration请选择Warranty Type请选择Suitable vehicle brand 请选择Suitable vehicle >> [placeholder="请输入"]
     page.locator("text=品牌Warranty Duration请选择Warranty Type请选择Suitable vehicle brand 请选择Suitable vehicle >> [placeholder=\"请输入\"]").fill("test_brand_name_000"+str(random.randint(0,9999)))
-    # Click text=Warranty Duration请选择 >> input[role="combobox"]
-    page.locator("text=Warranty Duration请选择 >> input[role=\"combobox\"]").click()
-    # Click text=1 Month >> nth=1
-    page.locator("text=1 Month").nth(1).click()
-    # Click text=Warranty Type请选择 >> input[role="combobox"]
-    page.locator("text=Warranty Type请选择 >> input[role=\"combobox\"]").click()
-    # Click text=Supplier Warranty >> nth=1
-    page.locator("text=Supplier Warranty").nth(1).click()
-    # Click .ant-select.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow >> nth=0
-    page.locator(".ant-select.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow").first.click()
+   
+   
+    # # Click text=Warranty Duration请选择 >> input[role="combobox"]
+    # page.locator("text=Warranty Duration请选择 >> input[role=\"combobox\"]").click()
+    # # Click text=1 Month >> nth=1
+    # page.locator("text=1 Month").nth(1).click()
+    # # Click text=Warranty Type请选择 >> input[role="combobox"]
+    # page.locator("text=Warranty Type请选择 >> input[role=\"combobox\"]").click()
+    # # Click text=Supplier Warranty >> nth=1
+    # page.locator("text=Supplier Warranty").nth(1).click()
+    # # Click .ant-select.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow >> nth=0
+    # page.locator(".ant-select.ant-pro-filed-search-select .ant-select-selector .ant-select-selection-overflow").first.click()
 
-     # Click .ant-select-dropdown div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active
-    page.locator(".ant-select-dropdown div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active").click()
-     # Click .ant-space-item div div:nth-child(3) .ant-col.ant-form-item-label >> nth=0
-    page.locator(".ant-space-item div div:nth-child(3) .ant-col.ant-form-item-label").first.click()
+    #  # Click .ant-select-dropdown div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active
+    # page.locator(".ant-select-dropdown div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active").click()
+    #  # Click .ant-space-item div div:nth-child(3) .ant-col.ant-form-item-label >> nth=0
+    # page.locator(".ant-space-item div div:nth-child(3) .ant-col.ant-form-item-label").first.click()
     
-    # Click .ant-space-item div div:nth-child(4) .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector .ant-select-selection-overflow
-    page.locator(".ant-space-item div div:nth-child(4) .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector .ant-select-selection-overflow").click()
+    # # Click .ant-space-item div div:nth-child(4) .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector .ant-select-selection-overflow
+    # page.locator(".ant-space-item div div:nth-child(4) .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector .ant-select-selection-overflow").click()
    
     # Click div:nth-child(10) div .ant-select-dropdown div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item
-    page.locator("div:nth-child(10) div .ant-select-dropdown div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item").click()
+    # page.locator("div:nth-child(10) div .ant-select-dropdown div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item").click()
 
-    # Click .ant-select.ant-select-status-success.ant-pro-filed-search-select.pro-field.pro-field-xl.ant-select-focused .ant-select-selector .ant-select-selection-overflow
-    page.locator(".ant-select.ant-select-status-success.ant-pro-filed-search-select.pro-field.pro-field-xl.ant-select-focused .ant-select-selector .ant-select-selection-overflow").click()
-    # Click text=PriceRM >> [placeholder="请输入"]
+    # # Click .ant-select.ant-select-status-success.ant-pro-filed-search-select.pro-field.pro-field-xl.ant-select-focused .ant-select-selector .ant-select-selection-overflow
+    # page.locator(".ant-select.ant-select-status-success.ant-pro-filed-search-select.pro-field.pro-field-xl.ant-select-focused .ant-select-selector .ant-select-selection-overflow").click()
+    # # Click text=PriceRM >> [placeholder="请输入"]
+
+
     page.locator("text=PriceRM >> [placeholder=\"请输入\"]").click()
     # Click text=PriceRM >> [placeholder="请输入"]
     # page.locator("text=PriceRM >> [placeholder=\"请输入\"]").click()
@@ -152,4 +156,5 @@ def create_prouct(page,product_name):
     # page.locator("button:has-text(\"提 交\")").click()
     with page.expect_navigation():
     # Click text=Save and Publish
-        page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > form > div.ant-space.ant-space-horizontal.ant-space-align-center > div:nth-child(1) > button").click()
+        page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > form > div.ant-space.ant-space-horizontal.ant-space-align-center > div:nth-child(1) > button > span").click()
+    
