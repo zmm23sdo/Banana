@@ -1,5 +1,8 @@
 import random
+import env
 
+admin_Url = env.envAdmin()
+client_Url = env.envClient()
 
 
 def create_group(page):

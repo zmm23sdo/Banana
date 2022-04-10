@@ -22,5 +22,5 @@ def envAdmin():
 
 admin_Url = envAdmin()
 client_Url = envClient()
-# print(f'admin Url: {admin_Url}')
-# print(f'client Url: {client_Url}')
+print(f'admin Url: {admin_Url}')
+print(f'client Url: {client_Url}')

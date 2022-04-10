@@ -1,13 +1,18 @@
-from Admin import product, login
-import random
+from Admin import login_admin
 
-from TestCase.TestAdmin.test_create_product import Random
+admin_username = "admin"
+admin_password = "qwer@1234"
 
-Random = str(random.randint(0,999))
-tran_name = "tran_moudle_000"+Random
+def test_admin_login(page):
+    login_admin.AdminLogin(page, admin_username, admin_password)
+    page.goto("https://admin-banana-test.chunsutech.com/dashboard")
+    page.locator("#root > div > section > div.ant-layout > main > div").click()
+    content = page.text_content("#root > div > section > div.ant-layout > main > div")
+    assert content == "Hello"
 
-
-def test_1(page):
-    login.login(page, username="admin", password="qwer@1234")
-    product.create_tran(page,tran_name)
-    print(f"Tran Moudle Name : {tran_name}")
+def test_admin_logout(page):
+    login_admin.AdminLogin(page, admin_username, admin_password)
+    login_admin.AdminLogout(page)
+    page.locator("#root > div > div > form > div.ant-row.ant-form-item.myButton___3IouX > div > div > div > button > span").click()
+    content = page.text_content("#root > div > div > form > div.ant-row.ant-form-item.myButton___3IouX > div > div > div > button > span")
+    assert content == "Submit"

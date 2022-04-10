@@ -1,4 +1,4 @@
-from Admin import login, user, time, name
+from Admin import login_admin, user, time, name
 import random
 
 Random =  str(random.randint(0,999))
@@ -8,7 +8,7 @@ Name = str(name.unicode()+name.unicode())
 def test_create_user(page):
     username = "admin"
     password = "qwer@1234"
-    login.login(page, username, password)
+    login_admin.login(page, username, password)
     role_name = "Role" + Random
     role_des = "Create" + role_name + Time
     user.create_role(page, role_name, role_des)
