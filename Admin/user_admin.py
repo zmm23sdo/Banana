@@ -40,7 +40,7 @@ def EditUser(page, admin_new_username, admin_new_email):
     # Click .ant-message-notice-content
     page.locator(".ant-message-notice-content").click()
 
-def DeleteUser(page,admin_new_username):
+def DeleteUser(page, admin_new_username):
     # Go to https://admin-banana-test.chunsutech.com/users/users/
     page.goto("https://admin-banana-test.chunsutech.com/users/users/")
     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
@@ -53,5 +53,23 @@ def DeleteUser(page,admin_new_username):
     page.locator("button:has-text(\"Delete\")").first.click()
     # Click button:has-text("Confirm")
     page.locator("button:has-text(\"Confirm\")").click()
+    # Click .ant-message-notice-content
+    page.locator(".ant-message-notice-content").click()
+
+def ResetPassword(page, admin_new_username, admin_new_password):
+    # Go to https://admin-banana-test.chunsutech.com/users/users/
+    page.goto("https://admin-banana-test.chunsutech.com/users/users/")
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_new_username)
+    # Click text=Create UserAdvanced Search >> button >> nth=1
+    page.locator("text=Create UserAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click button:has-text("Reset Password")
+    page.locator("button:has-text(\"Reset Password\")").first.click()
+    # Fill [placeholder="请输入"]
+    page.locator("[placeholder=\"请输入\"]").fill(admin_new_password)
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
     # Click .ant-message-notice-content
     page.locator(".ant-message-notice-content").click()
