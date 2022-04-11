@@ -19,4 +19,27 @@ def CreateRole(page, admin_rolename, admin_description):
     with page.expect_navigation():
         page.locator("button:has-text(\"Confirm\")").click()
     
-   
+def SearchRole(page, admin_rolename):
+    # Go to https://admin-banana-test.chunsutech.com/users/roles
+    page.goto("https://admin-banana-test.chunsutech.com/users/roles")
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_rolename)
+    # Click .ant-btn.ant-btn-default >> nth=0
+    page.locator(".ant-btn.ant-btn-default").first.click()
+    page.locator("[aria-label=\"reload\"] svg").click()
+    page.locator("text=" + admin_rolename).first.click()
+
+def DeleteRole(page, admin_rolename):
+    # Go to https://admin-banana-test.chunsutech.com/users/roles/
+    page.goto("https://admin-banana-test.chunsutech.com/users/roles/")
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_rolename)
+    # Click .ant-btn.ant-btn-default >> nth=0
+    page.locator(".ant-btn.ant-btn-default").first.click()
+    # Click button:has-text("Delete") >> nth=0
+    page.locator("button:has-text(\"Delete\")").first.click()
+    # Click button:has-text("Confirm")
+    page.locator("button:has-text(\"Confirm\")").click()
+    # Click .ant-message-notice-content
+    page.locator(".ant-message-notice-content").click()
+    
