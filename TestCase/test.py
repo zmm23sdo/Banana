@@ -40,9 +40,16 @@ print(f'\nadmin_description:,{admin_description}')
 #     content = page.text_content("text=" + admin_rolename)
 #     assert content == str(admin_rolename)
 
-def test_delete_role(page):
+# def test_delete_role(page):
+#     login_admin.AdminLogin(page, admin_username, admin_password)
+#     roles_admin.CreateRole(page, admin_rolename, admin_description)
+#     roles_admin.DeleteRole(page, admin_rolename)
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Delete Success!"
+
+def test_edit_role(page):
     login_admin.AdminLogin(page, admin_username, admin_password)
     roles_admin.CreateRole(page, admin_rolename, admin_description)
-    roles_admin.DeleteRole(page, admin_rolename)
+    roles_admin.EditRole(page, admin_rolename, admin_description)
     content = page.text_content(".ant-message-notice-content")
-    assert content == "Delete Success!"
+    assert content == "Edit Success!"

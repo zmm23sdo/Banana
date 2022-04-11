@@ -43,3 +43,22 @@ def DeleteRole(page, admin_rolename):
     # Click .ant-message-notice-content
     page.locator(".ant-message-notice-content").click()
     
+def EditRole(page, admin_rolename, admin_description):
+    # Go to https://admin-banana-test.chunsutech.com/users/roles/
+    page.goto("https://admin-banana-test.chunsutech.com/users/roles/")
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_rolename)
+    # Click .ant-btn.ant-btn-default >> nth=0
+    page.locator(".ant-btn.ant-btn-default").first.click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click button:has-text("Edit")
+    page.locator("button:has-text(\"Edit\")").first.click()
+    # Fill [placeholder="Cannot\ exceed\ 30\ characters"]
+    page.locator("#name").fill(admin_rolename+"Change")
+    # Fill text=Role891 ; 2022-04-11 16:37:50
+    page.locator("#description").fill("Change"+admin_description)
+    with page.expect_navigation():
+        page.locator("button:has-text(\"Confirm\")").click()
+    # Click .ant-message-notice-content
+    page.locator(".ant-message-notice-content").click()
