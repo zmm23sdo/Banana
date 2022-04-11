@@ -80,10 +80,9 @@ admin_new_password = "qwer`123"
 #     content = page.text_content(".ant-message-notice-content")
 #     assert content == "Edit Success!"
 
-def test_delete_user(page):
-    login_admin.AdminLogin(page,admin_username,admin_password)
-    user_admin.CreateUser(page, admin_new_username, admin_new_fullname, admin_new_email, admin_new_password)
-    user_admin.DeleteUser(page,admin_new_username)
-    content = page.text_content(".ant-message-notice-content")
-    assert content == "user.delete.success"#    文案待换
-    
+# def test_delete_user(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     user_admin.CreateUser(page, admin_new_username, admin_new_fullname, admin_new_email, admin_new_password)
+#     user_admin.DeleteUser(page,admin_new_username)
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "user.delete.success"#    文案待换
