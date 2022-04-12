@@ -45,3 +45,33 @@ def CreateSubcategory(page, admin_categoryname, admin_subcategoryname):
     page.locator("textarea").fill(admin_subcategoryname)
     # Click button:has-text("确 认")
     page.locator("button:has-text(\"确 认\")").click()
+
+def ModifySubcategory(page, admin_subcategoryname, admin_new_subcategoryname):
+    # Go to https://admin-banana-test.chunsutech.com/commodity/category/
+    page.goto("https://admin-banana-test.chunsutech.com/commodity/category/")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_subcategoryname)
+    # Click .ant-btn.ant-btn-default >> nth=0
+    page.locator(".ant-btn.ant-btn-default").first.click()
+    # Click button:has-text("Modify") >> nth=1
+    page.locator("button:has-text(\"Modify\")").nth(1).click()
+    # Fill textarea:has-text("Sub_Category895")
+    page.locator("#name").fill(admin_new_subcategoryname)
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+
+def DeleteSubcategory(page, admin_subcategoryname):
+    # Go to https://admin-banana-test.chunsutech.com/commodity/category/
+    page.goto("https://admin-banana-test.chunsutech.com/commodity/category/")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_subcategoryname)
+    # Click .ant-btn.ant-btn-default >> nth=0
+    page.locator(".ant-btn.ant-btn-default").first.click()
+    # Click button:has-text("Delete") >> nth=1
+    page.locator("button:has-text(\"Delete\")").nth(1).click()
+    # Click button:has-text("Confirm")
+    page.locator("button:has-text(\"Confirm\")").click()
