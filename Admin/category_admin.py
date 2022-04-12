@@ -38,7 +38,7 @@ def CreateSubcategory(page, admin_categoryname, admin_subcategoryname):
     # Click .ant-btn.ant-btn-default >> nth=0
     page.locator(".ant-btn.ant-btn-default").first.click()
     # Click button:has-text("创建子分组")
-    page.locator("button:has-text(\"创建子分组\")").click()
+    page.locator("button:has-text(\"创建子分组\")").first.click()
     # Click textarea
     page.locator("textarea").click()
     # Fill textarea

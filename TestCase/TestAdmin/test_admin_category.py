@@ -35,3 +35,19 @@ def test_modify_category(page):
     # Click text=categoryname
     content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div.ant-pro-table > div > table > tbody > tr > td:nth-child(1)")
     assert content == str(admin_new_categoryname)
+
+def test_create_subcategory(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    category_admin.CreateCategory(page, admin_categoryname)
+    admin_subcategoryname = "Sub_"+admin_categoryname
+    category_admin.CreateSubcategory(page, admin_categoryname, admin_subcategoryname)
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_subcategoryname)
+    # Click .ant-btn.ant-btn-default >> nth=0
+    page.locator(".ant-btn.ant-btn-default").first.click()
+    # Click text=admin_subcategoryname
+    page.locator("text="+admin_subcategoryname).click()
+    content = page.text_content("text="+admin_subcategoryname)
+    assert content == str(admin_subcategoryname)
