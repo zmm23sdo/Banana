@@ -38,7 +38,7 @@ def DeleteCategory(page, admin_categoryname):
     # Click .ant-btn.ant-btn-default >> nth=0
     page.locator(".ant-btn.ant-btn-default").first.click()
     # Click button:has-text("Delete") >> nth=1
-    page.locator("button:has-text(\"Delete\")").nth(1).click()
+    page.locator("button:has-text(\"Delete\")").first.click()
     # Click button:has-text("Confirm")
     page.locator("button:has-text(\"Confirm\")").click()
 
