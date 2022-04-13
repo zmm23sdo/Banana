@@ -3,7 +3,7 @@ import os
 def envClient():
     env = os.getenv('env')
     if env == 'T':
-        URL = 'https://client-banana-test.chunsutech.com/'
+        URL = 'https://client-banana-dev.chunsutech.com/'
     elif env == 'P':
         URL = 'client_product'
     else:
@@ -13,7 +13,7 @@ def envClient():
 def envAdmin():
     env = os.getenv('env')
     if env == 'T':
-        URL = 'https://admin-banana-test.chunsutech.com/'
+        URL = 'https://admin-banana-dev.chunsutech.com/'
     elif env == 'P':
         URL = 'admin_product'
     else:

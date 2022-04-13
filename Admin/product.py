@@ -7,7 +7,7 @@ client_Url = env.envClient()
 
 def create_group(page):
 
-    page.goto("https://admin-banana-test.chunsutech.com/dashboard")
+    page.goto("https://admin-banana-dev.chunsutech.com/dashboard")
 
     # Click div[role="menuitem"]:has-text("Commodity")
     page.locator("div[role=\"menuitem\"]:has-text(\"Commodity\")").click()
@@ -17,7 +17,7 @@ def create_group(page):
 
     # Click a:has-text("Commodity Category")
     page.locator("a:has-text(\"Commodity Category\")").click()
-    # assert page.url == "https://admin-banana-test.chunsutech.com/commodity/category"
+    # assert page.url == "https://admin-banana-dev.chunsutech.com/commodity/category"
     # Click button:has-text("Create")
     page.locator("button:has-text(\"Create\")").click()
     # Click textarea
@@ -28,15 +28,15 @@ def create_group(page):
     page.locator("button:has-text(\"确 认\")").click()
     
 def create_tran(page, tran_name):
-    # Go to https://admin-banana-test.chunsutech.com/dashboard
-    page.goto("https://admin-banana-test.chunsutech.com/dashboard")
+    # Go to https://admin-banana-dev.chunsutech.com/dashboard
+    page.goto("https://admin-banana-dev.chunsutech.com/dashboard")
     # Click span:has-text("Logistics") >> nth=0
     page.locator("span:has-text(\"Logistics\")").first.click()
     # Click a:has-text("Logistics Fee Management")·()
-    # assert page.url == "https://admin-banana-test.chunsutech.com/logistics/fee_management"
+    # assert page.url == "https://admin-banana-dev.chunsutech.com/logistics/fee_management"
     # Click button:has-text("Create")
     page.locator("button:has-text(\"Create\")").click()
-    # assert page.url == "https://admin-banana-test.chunsutech.com/logistics/fee_management/create_module"
+    # assert page.url == "https://admin-banana-dev.chunsutech.com/logistics/fee_management/create_module"
     # Fill [placeholder="请输入"]
     page.locator("[placeholder=\"请输入\"]").fill(tran_name)
     # Click input[type="radio"] >> nth=0
@@ -50,19 +50,19 @@ def create_tran(page, tran_name):
     # Click text=保存
     page.locator("text=保存").click()
     # Click button:has-text("提 交")
-    # with page.expect_navigation(url="https://admin-banana-test.chunsutech.com/logistics/fee_management"):
+    # with page.expect_navigation(url="https://admin-banana-dev.chunsutech.com/logistics/fee_management"):
     with page.expect_navigation():
         page.locator("button:has-text(\"提 交\")").click()
 
 def create_prouct(page,product_name):
 
-    page.goto("https://admin-banana-test.chunsutech.com/dashboard")
+    page.goto("https://admin-banana-dev.chunsutech.com/dashboard")
 
     # Click div[role="menuitem"]:has-text("Commodity")
     page.locator("div[role=\"menuitem\"]:has-text(\"Commodity\")").click()
     # Click a:has-text("Commodity List")
     page.locator("a:has-text(\"Commodity List\")").click()
-    # assert page.url == "https://admin-banana-test.chunsutech.com/commodity/list"
+    # assert page.url == "https://admin-banana-dev.chunsutech.com/commodity/list"
     # Click button:has-text("Create")
     page.locator("button:has-text(\"Create\")").click()
     # Fill text=Product Name0 / 120 >> [placeholder="请输入"]

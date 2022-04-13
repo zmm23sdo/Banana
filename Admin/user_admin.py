@@ -1,6 +1,6 @@
 def CreateUser(page, admin_new_username, admin_new_fullname, admin_new_email, admin_new_password):
-    # Go to https://admin-banana-test.chunsutech.com/users/users
-    page.goto("https://admin-banana-test.chunsutech.com/users/users")
+    # Go to https://admin-banana-dev.chunsutech.com/users/users
+    page.goto("https://admin-banana-dev.chunsutech.com/users/users")
     # Click button:has-text("Create User")
     page.locator("button:has-text(\"Create User\")").click()
     # Fill [placeholder="\35 -15\ alphabets\ or\ numbers"]
@@ -21,8 +21,8 @@ def CreateUser(page, admin_new_username, admin_new_fullname, admin_new_email, ad
     page.locator(".ant-message-notice-content").click()
 
 def EditUser(page, admin_new_username, admin_new_email):
-    # Go to https://admin-banana-test.chunsutech.com/users/users/
-    page.goto("https://admin-banana-test.chunsutech.com/users/users/")
+    # Go to https://admin-banana-dev.chunsutech.com/users/users/
+    page.goto("https://admin-banana-dev.chunsutech.com/users/users/")
     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
     page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_new_username)
     # Click text=Create UserAdvanced Search >> button >> nth=1
@@ -41,8 +41,8 @@ def EditUser(page, admin_new_username, admin_new_email):
     page.locator(".ant-message-notice-content").click()
 
 def DeleteUser(page, admin_new_username):
-    # Go to https://admin-banana-test.chunsutech.com/users/users/
-    page.goto("https://admin-banana-test.chunsutech.com/users/users/")
+    # Go to https://admin-banana-dev.chunsutech.com/users/users/
+    page.goto("https://admin-banana-dev.chunsutech.com/users/users/")
     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
     page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_new_username)
     # Click text=Create UserAdvanced Search >> button >> nth=1
@@ -57,8 +57,8 @@ def DeleteUser(page, admin_new_username):
     page.locator(".ant-message-notice-content").click()
 
 def ResetPassword(page, admin_new_username, admin_new_password):
-    # Go to https://admin-banana-test.chunsutech.com/users/users/
-    page.goto("https://admin-banana-test.chunsutech.com/users/users/")
+    # Go to https://admin-banana-dev.chunsutech.com/users/users/
+    page.goto("https://admin-banana-dev.chunsutech.com/users/users/")
     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
     page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_new_username)
     # Click text=Create UserAdvanced Search >> button >> nth=1
