@@ -205,9 +205,34 @@ admin_product_stock = "100"
 admin_product_weight = "1" 
 admin_product_freight = "10"
 
-def test_create_product_basics(page): 
+# def test_create_product_basic(page): 
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     product_admin.CreateProductBasic(page, admin_prouctname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+#     # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+#     page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+#     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+#     page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill("productname1234567890")
+#     # Click text=CreateAdvanced Search >> button >> nth=1
+#     page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+#     # Click text=productname1234567890
+#     page.locator("text="+admin_prouctname).click()    
+#     content = page.text_content("text="+admin_prouctname)
+#     assert content == str(admin_prouctname)
+
+admin_product_brand = "Brand"+str(int(time.time()))
+admin_variation0 = "0Variation"+str(int(time.time()))
+admin_option0 = "0option"+str(int(time.time()))
+admin_option1 = "1option"+str(int(time.time()))
+admin_option2 = "2option"+str(int(time.time()))
+admin_variation1 = "1Variation"+str(int(time.time()))
+admin_option3 = "3option"+str(int(time.time()))
+admin_product_sku = "sku_"+str(int(time.time()))
+admin_product_barcode = "barcode_"+str(int(time.time()))
+def test_create_product_advance(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
-    product_admin.CreateProductBasic(page, admin_prouctname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    product_admin.CreateProductAdvance(page, admin_prouctname, admin_product_description, admin_product_brand, admin_variation0,
+                         admin_option0, admin_option1, admin_option2, admin_variation1, admin_option3, admin_product_price,
+                         admin_product_stock, admin_product_weight, admin_product_sku, admin_product_barcode)
     # Go to https://admin-banana-dev.chunsutech.com/commodity/list
     page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
