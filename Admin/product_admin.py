@@ -46,7 +46,7 @@ def CreateProductBasic(page, admin_prouctname, admin_product_description, admin_
         page.locator("button:has-text(\"Save and Publish\")").click()
     
 def CreateProductAdvance(page, admin_prouctname, admin_product_description, admin_product_brand, admin_variation0,
-                         admin_option0, admin_option1, admin_option2, admin_variation1, admin_option3, admin_product_price,
+                         admin_option0, admin_variation1, admin_option3, admin_product_price,
                          admin_product_stock, admin_product_weight, admin_product_sku, admin_product_barcode
     ):
     # Go to https://admin-banana-dev.chunsutech.com/commodity/list
@@ -103,29 +103,17 @@ def CreateProductAdvance(page, admin_prouctname, admin_product_description, admi
     page.locator("text=Variation").first.click()
     # Fill [placeholder="Enter\ Vairation\ Name\,eg\:colour\,etc\."]
     page.locator("[placeholder=\"Enter\\ Vairation\\ Name\\,eg\\:colour\\,etc\\.\"]").fill(admin_variation0)
-    # Double click button:has-text("Add Options")
-    page.locator("button:has-text(\"Add Options\")").dblclick()
     # Fill [placeholder="Enter\ Vairation\ Name\,eg\:Red\,etc\."] >> nth=0
     page.locator("[placeholder=\"Enter\\ Vairation\\ Name\\,eg\\:Red\\,etc\\.\"]").first.fill(admin_option0)
-    # Fill [placeholder="Enter\ Vairation\ Name\,eg\:Red\,etc\."] >> nth=1
-    page.locator("[placeholder=\"Enter\\ Vairation\\ Name\\,eg\\:Red\\,etc\\.\"]").nth(1).fill(admin_option1)
-    # Fill [placeholder="Enter\ Vairation\ Name\,eg\:Red\,etc\."] >> nth=2
-    page.locator("[placeholder=\"Enter\\ Vairation\\ Name\\,eg\\:Red\\,etc\\.\"]").nth(2).fill(admin_option2)
-    # Click text=Add Option Pictures
-    page.locator("text=Add Option Pictures").click()
-    #   Add Option Pictures
-###########################
-    page.set_input_files("input#testpic_13600_1649835497626","/Users/michaelcheung/Project/Banana/Pictures/0011.jpg")
-    page.set_input_files("input#testpic_19179_1649835510304","/Users/michaelcheung/Project/Banana/Pictures/0012.jpg")
-    page.set_input_files("input#testpic_17468_1649835510502","/Users/michaelcheung/Project/Banana/Pictures/0013.jpg")
-####
- 
+    page.set_input_files('input[id^="testpic_"]',"/Users/michaelcheung/Project/Banana/Pictures/0011.jpg")
     # Click button:has-text("Add Variation")
     page.locator("button:has-text(\"Add Variation\")").click()
     # Click span:has-text("Variation1")
     page.locator("span:has-text(\"Variation1\")").click()
+    # Click text=Variation1OptionsAdd Options >> [placeholder="Enter\ Vairation\ Name\,eg\:colour\,etc\."]
+    page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > form > div:nth-child(7) > div.ant-space.ant-space-vertical.ant-space-align-start.ant-pro-form-group-container > div > div > div > div:nth-child(2) > div.ant-row.ant-form-item > div > div > div > span > input").click()
     # Click text=Variation1OptionsAdd Options
-    page.locator("text=Variation1OptionsAdd Options").fill(admin_variation1)
+    page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > form > div:nth-child(7) > div.ant-space.ant-space-vertical.ant-space-align-start.ant-pro-form-group-container > div > div > div > div:nth-child(2) > div.ant-row.ant-form-item > div > div > div > span > input").fill(admin_variation1)
     # Fill text=Variation1OptionsAdd Options >> [placeholder="Enter\ Vairation\ Name\,eg\:Red\,etc\."]
     page.locator("text=Variation1OptionsAdd Options >> [placeholder=\"Enter\\ Vairation\\ Name\\,eg\\:Red\\,etc\\.\"]").fill(admin_option3)
     # Fill [placeholder="Price"]
@@ -143,12 +131,16 @@ def CreateProductAdvance(page, admin_prouctname, admin_product_description, admi
     # Click input[type="radio"] >> nth=2
     page.locator("input[type=\"radio\"]").nth(2).click()
     # Click .ant-select.ant-select-status-error .ant-select-selector
-    page.locator(".ant-select.ant-select-status-error .ant-select-selector").click()
+    page.locator("text=Freight Template请选择 >> input[role=\"combobox\"]").click()
     # Click .ant-select-dropdown.ant-select-dropdown-placement-topLeft div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active
     page.locator(".ant-select-dropdown.ant-select-dropdown-placement-topLeft div div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active").click()
-    # Click .ant-space div:nth-child(3) .ant-row .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector
-    page.locator(".ant-space div:nth-child(3) .ant-row .ant-col.ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-select .ant-select-selector").click()
-    # Click .ant-select-dropdown.ant-select-dropdown-placement-topLeft div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active >> nth=0
-    page.locator(".ant-select-dropdown.ant-select-dropdown-placement-topLeft div .rc-virtual-list .rc-virtual-list-holder div .rc-virtual-list-holder-inner .ant-select-item.ant-select-item-option.ant-pro-filed-search-select-option.ant-select-item-option-active").first.click()
+    
+    # Click text=Place of shipment请选择 >> input[role="combobox"]
+    page.locator("text=Place of shipment请选择 >> input[role=\"combobox\"]").click()
+    # Click text=Terengganu >> nth=1
+    page.locator("text=Terengganu").nth(1).click()
+    
     # Click button:has-text("Save and Publish")
-    page.locator("button:has-text(\"Save and Publish\")").click()
+    # with page.expect_navigation(url="https://admin-banana-dev.chunsutech.com/commodity/list"):
+    with page.expect_navigation():
+        page.locator("button:has-text(\"Save and Publish\")").click()
