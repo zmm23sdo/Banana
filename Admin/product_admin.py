@@ -166,3 +166,26 @@ def ChangeProduct(page, admin_prouctname, admin_new_prouctname, admin_new_produc
     # with page.expect_navigation(url="https://admin-banana-dev.chunsutech.com/commodity/list"):
     with page.expect_navigation():
         page.locator("button:has-text(\"Save and Publish\")").click()
+
+
+def PutonProduct(page, admin_prouctname):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_prouctname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    
+    # Click td >> nth=0
+    page.locator("td").first.click()
+    
+    # Click button:has-text("上 架")
+    page.locator("button:has-text(\"上 架\")").click()
+    # Click button:has-text("Confirm")
+    page.locator("button:has-text(\"Confirm\")").click()
+    
+# def PutoffProduct(page, admin_prouctname)

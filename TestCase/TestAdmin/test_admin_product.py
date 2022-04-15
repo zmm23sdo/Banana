@@ -66,3 +66,23 @@ def test_change_product(page):
     page.locator("text="+admin_new_prouctname).click()    
     content = page.text_content("text="+admin_new_prouctname)
     assert content == str(admin_new_prouctname)
+
+def test_puton_product(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_prouctname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    product_admin.PutonProduct(page, admin_prouctname)
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_prouctname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click tbody >> text=Live
+    page.locator("td:nth-child(8)").first.click()
+    content = page.text_content("td:nth-child(8)")
+    # print(f'content:{content}')
+    assert content == "Live"
