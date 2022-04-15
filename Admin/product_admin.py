@@ -139,7 +139,29 @@ def CreateProductAdvance(page, admin_prouctname, admin_product_description, admi
     page.locator("text=Place of shipment请选择 >> input[role=\"combobox\"]").click()
     # Click text=Terengganu >> nth=1
     page.locator("text=Terengganu").nth(1).click()
-    
+
+    # Click button:has-text("Save and Publish")
+    # with page.expect_navigation(url="https://admin-banana-dev.chunsutech.com/commodity/list"):
+    with page.expect_navigation():
+        page.locator("button:has-text(\"Save and Publish\")").click()
+
+def ChangeProduct(page, admin_prouctname, admin_new_prouctname, admin_new_product_description):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_prouctname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click button:has-text("Change")
+    page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div.table___1mj95 > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > button > span").click()
+    # Fill text=Product Name32 / 120 >> [placeholder="请输入"]
+    page.locator("#name").fill(admin_new_prouctname)
+    # Fill text=Product Description: Product2022-04-14 15:18:38 2022-04-14 15:18:38
+    page.locator("#describe").fill(admin_new_product_description)
     # Click button:has-text("Save and Publish")
     # with page.expect_navigation(url="https://admin-banana-dev.chunsutech.com/commodity/list"):
     with page.expect_navigation():

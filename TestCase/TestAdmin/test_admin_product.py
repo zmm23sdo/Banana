@@ -49,3 +49,20 @@ def test_create_product_advance(page):
     page.locator("text="+admin_prouctname).click()    
     content = page.text_content("text="+admin_prouctname)
     assert content == str(admin_prouctname)
+
+def test_change_product(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_prouctname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    admin_new_prouctname =  "Change"+admin_prouctname
+    admin_new_product_description = "Change"+admin_product_description
+    product_admin.ChangeProduct(page, admin_prouctname, admin_new_prouctname, admin_new_product_description)
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_new_prouctname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click text=productname1234567890
+    page.locator("text="+admin_new_prouctname).click()    
+    content = page.text_content("text="+admin_new_prouctname)
+    assert content == str(admin_new_prouctname)
