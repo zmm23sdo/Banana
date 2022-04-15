@@ -1,4 +1,4 @@
-def CreateProductBasic(page, admin_prouctname, admin_product_description, admin_product_price, admin_product_stock,
+def CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock,
                        admin_product_weight, admin_product_freight
     ):
     # Go to https://admin-banana-dev.chunsutech.com/commodity/list
@@ -7,7 +7,7 @@ def CreateProductBasic(page, admin_prouctname, admin_product_description, admin_
     page.locator("button:has-text(\"Create\")").click()
     # assert page.url == "https://admin-banana-dev.chunsutech.com/commodity/list/create"
     # Fill text=Product Name0 / 120 >> [placeholder="请输入"]
-    page.locator("text=Product Name0 / 120 >> [placeholder=\"请输入\"]").fill(admin_prouctname)
+    page.locator("text=Product Name0 / 120 >> [placeholder=\"请输入\"]").fill(admin_productname)
      # Click text=Product Category请选择 >> input[role="combobox"]
     page.locator("text=Product Category请选择 >> input[role=\"combobox\"]").click()
     # Click text=Accessories >> nth=0
@@ -45,7 +45,7 @@ def CreateProductBasic(page, admin_prouctname, admin_product_description, admin_
     with page.expect_navigation():
         page.locator("button:has-text(\"Save and Publish\")").click()
     
-def CreateProductAdvance(page, admin_prouctname, admin_product_description, admin_product_brand, admin_variation0,
+def CreateProductAdvance(page, admin_productname, admin_product_description, admin_product_brand, admin_variation0,
                          admin_option0, admin_variation1, admin_option3, admin_product_price,
                          admin_product_stock, admin_product_weight, admin_product_sku, admin_product_barcode
     ):
@@ -55,7 +55,7 @@ def CreateProductAdvance(page, admin_prouctname, admin_product_description, admi
     page.locator("button:has-text(\"Create\")").click()
     # assert page.url == "https://admin-banana-dev.chunsutech.com/commodity/list/create"
     # Fill text=Product Name0 / 120 >> [placeholder="请输入"]
-    page.locator("text=Product Name0 / 120 >> [placeholder=\"请输入\"]").fill(admin_prouctname)
+    page.locator("text=Product Name0 / 120 >> [placeholder=\"请输入\"]").fill(admin_productname)
      # Click text=Product Category请选择 >> input[role="combobox"]
     page.locator("text=Product Category请选择 >> input[role=\"combobox\"]").click()
     # Click text=Accessories >> nth=0
@@ -145,13 +145,13 @@ def CreateProductAdvance(page, admin_prouctname, admin_product_description, admi
     with page.expect_navigation():
         page.locator("button:has-text(\"Save and Publish\")").click()
 
-def ChangeProduct(page, admin_prouctname, admin_new_prouctname, admin_new_product_description):
+def ChangeProduct(page, admin_productname, admin_new_productname, admin_new_product_description):
     # Go to https://admin-banana-dev.chunsutech.com/commodity/list
     page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
     # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
     page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
-    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_prouctname)
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
     # Click text=CreateAdvanced Search >> button >> nth=1
     page.locator("text=CreateAdvanced Search >> button").nth(1).click()
     # Click [aria-label="reload"] svg
@@ -159,7 +159,7 @@ def ChangeProduct(page, admin_prouctname, admin_new_prouctname, admin_new_produc
     # Click button:has-text("Change")
     page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div.table___1mj95 > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > button > span").click()
     # Fill text=Product Name32 / 120 >> [placeholder="请输入"]
-    page.locator("#name").fill(admin_new_prouctname)
+    page.locator("#name").fill(admin_new_productname)
     # Fill text=Product Description: Product2022-04-14 15:18:38 2022-04-14 15:18:38
     page.locator("#describe").fill(admin_new_product_description)
     # Click button:has-text("Save and Publish")
@@ -168,24 +168,108 @@ def ChangeProduct(page, admin_prouctname, admin_new_prouctname, admin_new_produc
         page.locator("button:has-text(\"Save and Publish\")").click()
 
 
-def PutonProduct(page, admin_prouctname):
+def PutonProduct(page, admin_productname):
     # Go to https://admin-banana-dev.chunsutech.com/commodity/list
     page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
     # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
     page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
     # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
-    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_prouctname)
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
     # Click text=CreateAdvanced Search >> button >> nth=1
     page.locator("text=CreateAdvanced Search >> button").nth(1).click()
     # Click [aria-label="reload"] svg
     page.locator("[aria-label=\"reload\"] svg").click()
-    
     # Click td >> nth=0
     page.locator("td").first.click()
-    
     # Click button:has-text("上 架")
     page.locator("button:has-text(\"上 架\")").click()
     # Click button:has-text("Confirm")
     page.locator("button:has-text(\"Confirm\")").click()
     
-# def PutoffProduct(page, admin_prouctname)
+def PutoffProduct(page, admin_productname):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click td >> nth=0
+    page.locator("td").first.click()
+    # Click button:has-text("下 架")
+    page.locator("button:has-text(\"下 架\")").click()
+    # Click button:has-text("Confirm")
+    page.locator("button:has-text(\"Confirm\")").click()
+
+def SetProductCategory(page, admin_productname):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click td >> nth=0
+    page.locator("td").first.click()
+    # Click button:has-text("设置分组")
+    page.locator("button:has-text(\"设置分组\")").click()
+    # Click .ant-select-selector
+    page.locator(".ant-select-selector").click()
+    # Click .ant-select-item >> nth=0
+    page.locator(".ant-select-item").first.click()
+    # Click div[role="document"] div:has-text("商品分组") >> nth=3
+    page.locator("div[role=\"document\"] div:has-text(\"商品分组\")").nth(3).click()
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+    # Click .ant-message-notice-content
+    page.locator(".ant-message-notice-content").click()
+
+def SetProductFreightunified(page, admin_productname):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click td >> nth=0
+    page.locator("td").first.click()
+    # Click button:has-text("设置运费模版")
+    page.locator("button:has-text(\"设置运费模版\")").click()
+    # Fill [placeholder="请输入"]
+    page.locator("[placeholder=\"请输入\"]").fill("100")
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+
+def SetProductFreighttemplate(page, admin_productname):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click td >> nth=0
+    page.locator("td").first.click()
+    # Click button:has-text("设置运费模版")
+    page.locator("button:has-text(\"设置运费模版\")").click()
+     # Click input[type="radio"] >> nth=1
+    page.locator("input[type=\"radio\"]").nth(1).click()
+    # Click input[role="combobox"]
+    page.locator("input[role=\"combobox\"]").click()
+    # Click .ant-select-item >> nth=0
+    page.locator(".ant-select-item").first.click()
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
