@@ -133,3 +133,21 @@ def test_set_product_freighttemplate(page):
     page.locator(".ant-message-notice-content").click()
     content = page.text_content(".ant-message-notice-content")
     assert content == "设置运费模版成功!"
+
+def test_set_product_shipment(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    product_admin.SetProductShipment(page, admin_productname)
+    # Click .ant-message-notice-content
+    page.locator(".ant-message-notice-content").click()
+    content = page.text_content(".ant-message-notice-content")
+    assert content == "设置发货地成功!"
+
+def test_delete_product(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    product_admin.DeleteProduct(page, admin_productname)
+    # Click .ant-message-notice-content
+    page.locator(".ant-message-notice-content").click()
+    content = page.text_content(".ant-message-notice-content")
+    assert content == "删除成功!"

@@ -273,3 +273,41 @@ def SetProductFreighttemplate(page, admin_productname):
     page.locator(".ant-select-item").first.click()
     # Click button:has-text("确 认")
     page.locator("button:has-text(\"确 认\")").click()
+
+def SetProductShipment(page, admin_productname):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click td >> nth=0
+    page.locator("td").first.click()
+    # Click button:has-text("设置发货地")
+    page.locator("button:has-text(\"设置发货地\")").click()
+    # Fill [placeholder="请输入"]
+    page.locator("[placeholder=\"请输入\"]").fill("Kuala Lumpur")
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+
+def DeleteProduct(page, admin_productname):
+    # Go to https://admin-banana-dev.chunsutech.com/commodity/list
+    page.goto("https://admin-banana-dev.chunsutech.com/commodity/list")
+    # Click [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").click()
+    # Fill [placeholder="Select\ the\ property\ search\,\ or\ enter\ a\ keyword\ to\ identify\ the\ search"]
+    page.locator("[placeholder=\"Select\\ the\\ property\\ search\\,\\ or\\ enter\\ a\\ keyword\\ to\\ identify\\ the\\ search\"]").fill(admin_productname)
+    # Click text=CreateAdvanced Search >> button >> nth=1
+    page.locator("text=CreateAdvanced Search >> button").nth(1).click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click td >> nth=0
+    page.locator("td").first.click()
+    # Click button:has-text("删 除")
+    page.locator("button:has-text(\"删 除\")").click()
+    # Click button:has-text("Confirm")
+    page.locator("button:has-text(\"Confirm\")").click()
