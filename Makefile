@@ -12,5 +12,5 @@ debug:
 	PWDEBUG=1 python3 -m pytest -s --headed TestCase/test.py
 PWadmin:
 	python3 -m playwright codegen https://admin-banana-dev.chunsutech.com/
-PWcilent:
+PWclient:
 	python3 -m playwright codegen https://client-banana-dev.chunsutech.com/

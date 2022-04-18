@@ -1,4 +1,4 @@
-def login(page, customer_phone, customer_password):
+def ClientLogin(page, customer_phone, customer_password):
     # Go to https://client-banana-dev.chunsutech.com/home
     page.goto("https://client-banana-dev.chunsutech.com/home")
     # Click button:has-text("Me")
