@@ -1,5 +1,5 @@
 from certifi import contents
-from Admin import login_admin, roles_admin, user_admin, category_admin, product_admin
+from Admin import login_admin, roles_admin, user_admin, category_admin, product_admin, resources_admin
 import datetime
 import random
 import time
@@ -335,11 +335,99 @@ admin_product_barcode = "barcode_"+str(int(time.time()))
 #     content = page.text_content(".ant-message-notice-content")
 #     assert content == "设置发货地成功!"
 
-def test_delete_product(page):
-    login_admin.AdminLogin(page,admin_username,admin_password)
-    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
-    product_admin.DeleteProduct(page, admin_productname)
-    # Click .ant-message-notice-content
-    page.locator(".ant-message-notice-content").click()
-    content = page.text_content(".ant-message-notice-content")
-    assert content == "删除成功!"
+# def test_delete_product(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+#     product_admin.DeleteProduct(page, admin_productname)
+#     # Click .ant-message-notice-content
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "删除成功!"
+
+admin_groupname = "Group"+str(int(time.time()))
+
+# def test_add_group(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     # Click .ant-message-notice-content
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Create Group Success!"
+
+# def test_add_subgroup(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     admin_subgroupname = "Sub_"+admin_groupname
+#     resources_admin.AddSubgroup(page, admin_groupname, admin_subgroupname)
+#     # Click .ant-message-notice-content
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Create Group Success!"
+
+# def test_change_group(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     admin_new_groupname = "Change"+str(int(time.time()))
+#     resources_admin.ChangeGroup(page, admin_groupname, admin_new_groupname)
+#     # Click .ant-message-notice-content
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Change Group Success!"
+    
+# def test_change_subgroup(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     admin_subgroupname = "Sub_"+admin_groupname
+#     resources_admin.AddSubgroup(page, admin_groupname, admin_subgroupname)
+#     admin_new_subgroupname = "ChangeSub"+str(int(time.time()))
+#     resources_admin.ChangeSubgroup(page, admin_subgroupname, admin_new_subgroupname)
+#     # Click .ant-message-notice-content
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Change Group Success!"
+
+# def test_delete_subgroup(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     admin_subgroupname = "Sub_"+admin_groupname
+#     resources_admin.AddSubgroup(page, admin_groupname, admin_subgroupname)
+#     resources_admin.DeleteSubgroup(page, admin_subgroupname)
+#     # Click .ant-message-notice-content
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Delete Group Success!"
+
+# def test_delete_group(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     resources_admin.DeleteGroup(page, admin_groupname)
+#     # Click .ant-message-notice-content
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Delete Group Success!"
+
+# def test_add_image(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     resources_admin.AddImage(page, admin_groupname)
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Add Image Success!"
+
+# def test_change_imagegroup(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     resources_admin.AddImage(page, admin_groupname)
+#     resources_admin.ChangeImageGroup(page, admin_groupname)
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Change Group Success!"
+
+# def test_delete_image(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     resources_admin.AddGroup(page, admin_groupname)
+#     resources_admin.AddImage(page, admin_groupname)
+#     resources_admin.DeleteImage(page, admin_groupname)
+#     page.locator(".ant-message-notice-content").click()
+#     content = page.text_content(".ant-message-notice-content")
+#     assert content == "Delete Success!"
