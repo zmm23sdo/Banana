@@ -1,5 +1,6 @@
 from Admin import login_admin, roles_admin, user_admin, category_admin, product_admin, resources_admin
 from Client import login_client, search_client, buy_client, address_client
+from API import change_order_status
 import datetime
 import random
 import time
@@ -439,6 +440,7 @@ fullname = "Edison Cheung"
 phonenumber = customer_phone
 zipcode = str(int(time.time()))
 detail = "Test_detail"
+headers = {'Authorization': '4211278B73B3424AB9B6701C83B558F5', 'X-Tenant-Type':'client'}
 
 def test_scene_buy(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
@@ -447,3 +449,8 @@ def test_scene_buy(page):
     address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
     search_client.SearchProduct(page, admin_productname)
     buy_client.BuyProduct(page)
+    order_no = ""
+    change_order_status.ipay88Complete(payment_number = order_no, headers=headers)
+
+
+
