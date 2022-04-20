@@ -1,3 +1,5 @@
+
+
 def BuyProduct(page):
     page.locator(".absolute img").first.click()
     # Click text=Buy Now
@@ -16,3 +18,4 @@ def BuyProduct(page):
         page.locator("text=Place Order").click()
     # Click text=field Signature is not set
     page.locator("text=field Signature is not set").click()
+
