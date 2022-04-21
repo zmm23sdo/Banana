@@ -19,3 +19,16 @@ def BuyProduct(page):
     # Click text=field Signature is not set
     page.locator("text=field Signature is not set").click()
 
+def CartProduct(page):
+    page.locator(".absolute img").first.click()
+    # Click #root-box div:has-text("Add To Cart") >> nth=2
+    with page.expect_navigation():
+        page.locator("#root-box div:has-text(\"Add To Cart\")").nth(2).click()
+    # Click .rounded.flex.justify-center.items-center.bg-send
+    page.locator(".rounded.flex.justify-center.items-center.border").click()
+    # Click text=General
+    page.locator("text=General").click()
+    # Click #select_drawer div:has-text("Add To Cart") >> nth=2
+    page.locator("#select_drawer div:has-text(\"Add To Cart\")").nth(2).click()
+    # Click div[role="alert"]:has-text("Add to cart successfully")
+    page.locator("div > div > div.MuiAlert-message.css-1w0ym84").click()
