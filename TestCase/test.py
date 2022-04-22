@@ -465,11 +465,23 @@ headers = {'Authorization': '4211278B73B3424AB9B6701C83B558F5', 'X-Tenant-Type':
 #     order_status = change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
 #     assert str(order_status.status_code) == "200"
 
-def test_cart_product(page):
+# def test_cart_product(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+#     login_client.ClientLogin(page, customer_phone, customer_password)
+#     search_client.SearchProduct(page, admin_productname)
+#     buy_client.CartProduct(page)
+#     content = page.text_content("div > div > div.MuiAlert-message.css-1w0ym84")
+#     assert str(content) == "Add to cart successfully"
+
+def test_cancel_order(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
     login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
     search_client.SearchProduct(page, admin_productname)
-    buy_client.CartProduct(page)
-    content = page.text_content("div > div > div.MuiAlert-message.css-1w0ym84")
-    assert str(content) == "Add to cart successfully"
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    order_client.CancelUnpaidOrder(page, order_id)
+    content = page.text_content("#root-box > div.h-44px.flex.justify-around.items-center.px-2.bg-white > div.flex-1.text-normal.text-xxl.text-center.flex.flex-col")
+    assert str(content) == "Canceled"
