@@ -28,3 +28,15 @@ def GetOrderId(page,admin_productname):
     order_no = page.text_content("#scrollElement > div > div > div.za-pull__body > div > a > div > div.pb-4.w-full.flex.flex-row.items-center.justify-between > div.flex-1.text-lg.text-normal.text-opacity-70 > div.inline.text-normal")
     order_id = str(order_no)
     return order_id
+
+def PaynowUnpaidOrder(page, order_id):
+    # Go to https://client-banana-dev.chunsutech.com/management/order/list?type=1
+    page.goto("https://client-banana-dev.chunsutech.com/management/order/list?type=1")
+    # Click text=1220419422410000001
+    # with page.expect_navigation(url="https://client-banana-dev.chunsutech.com/management/order/detail?id=1220419422410000001"):
+    with page.expect_navigation():
+        page.locator("text="+order_id).click()
+    # Click text=Pay Now
+    page.locator("text=Pay Now").click()
+    # Click text=field Signature is not set
+    page.locator("text=field Signature is not set").click()
