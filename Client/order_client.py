@@ -40,3 +40,69 @@ def PaynowUnpaidOrder(page, order_id):
     page.locator("text=Pay Now").click()
     # Click text=field Signature is not set
     page.locator("text=field Signature is not set").click()
+
+def ReturnShipOrder(page, order_id,return_description):
+    # Go to https://client-banana-dev.chunsutech.com/management/order/list?type=2
+    page.goto("https://client-banana-dev.chunsutech.com/management/order/list?type=2")
+    # Click text=1220419422410000001
+    # with page.expect_navigation(url="https://client-banana-dev.chunsutech.com/management/order/detail?id=1220419422410000001"):
+    with page.expect_navigation():
+        page.locator("text="+order_id).click()
+    # Click .rounded.flex.justify-center
+    page.locator(".rounded.flex.justify-center").click()
+    # Click .w-full.h-10 >> nth=0
+    page.locator(".w-full.h-10").first.click()
+    # Click text=Return >> nth=3
+    page.locator("text=Return").nth(3).click()
+    # Click div:nth-child(7) .w-full
+    page.locator("div:nth-child(7) .w-full").click()
+    # Click text=Damage Upon Arrival
+    page.locator("text=Damage Upon Arrival").click()
+    # Fill textarea
+    page.locator("textarea").fill(return_description)
+    # Click text=Submit
+    page.locator("text=Submit").click()
+
+def RefundShipOrder(page, order_id, refund_description):
+    # Go to https://client-banana-dev.chunsutech.com/management/order/list?type=2
+    page.goto("https://client-banana-dev.chunsutech.com/management/order/list?type=2")
+    # Click text=1220419422410000001
+    # with page.expect_navigation(url="https://client-banana-dev.chunsutech.com/management/order/detail?id=1220419422410000001"):
+    with page.expect_navigation():
+        page.locator("text="+order_id).click()
+    # Click .rounded.flex.justify-center
+    page.locator(".rounded.flex.justify-center").click()
+    # Click .w-full.h-10 >> nth=0
+    page.locator(".w-full.h-10").first.click()
+    # Click text=Return >> nth=3
+    page.locator("text=Refund").nth(3).click()
+    # Click div:nth-child(7) .w-full
+    page.locator("div:nth-child(7) .w-full").click()
+    # Click text=Damage Upon Arrival
+    page.locator("text=Damage Upon Arrival").click()
+    # Fill textarea
+    page.locator("textarea").fill(refund_description)
+    # Click text=Submit
+    page.locator("text=Submit").click()
+
+def ReturnRefundShipOrder(page,order_id, returnrefund_description):
+    # Go to https://client-banana-dev.chunsutech.com/management/order/list?type=2
+    page.goto("https://client-banana-dev.chunsutech.com/management/order/list?type=2")
+    # Click text=1220419422410000001
+    # with page.expect_navigation(url="https://client-banana-dev.chunsutech.com/management/order/detail?id=1220419422410000001"):
+    with page.expect_navigation():
+        page.locator("text="+order_id).click()
+    # Click .rounded.flex.justify-center
+    page.locator(".rounded.flex.justify-center").click()
+    # Click .w-full.h-10 >> nth=0
+    page.locator(".w-full.h-10").first.click()
+    # Click text=Return >> nth=3
+    page.locator("text=Return&Refund").click()
+    # Click div:nth-child(7) .w-full
+    page.locator("div:nth-child(7) .w-full").click()
+    # Click text=Damage Upon Arrival
+    page.locator("text=Damage Upon Arrival").click()
+    # Fill textarea
+    page.locator("textarea").fill(returnrefund_description)
+    # Click text=Submit
+    page.locator("text=Submit").click()

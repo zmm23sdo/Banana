@@ -1,4 +1,4 @@
-from Admin import login_admin, product_admin
+from Admin import login_admin, product_admin, order_admin
 from Client import login_client, search_client, buy_client, address_client, order_client
 from API import change_order_status
 import datetime
@@ -67,3 +67,48 @@ def test_cancel_order(page):
     order_client.CancelUnpaidOrder(page, order_id)
     content = page.text_content("#root-box > div.h-44px.flex.justify-around.items-center.px-2.bg-white > div.flex-1.text-normal.text-xxl.text-center.flex.flex-col")
     assert str(content) == "Canceled"
+
+def test_return_order(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+    return_description = "Return"+str(int(time.time()))
+    order_client.ReturnShipOrder(page, order_id, return_description)
+    order_admin.SearchReturnOrder(page, order_id)
+    content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.detailDescription___Lrvi9 > div.detailIds___b3ust > div:nth-child(2) > div:nth-child(2)")
+    assert str(content) == str(order_id)
+
+def test_refund_order(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+    refund_description = "Refund"+str(int(time.time()))
+    order_client.RefundShipOrder(page, order_id, refund_description)
+    order_admin.SearchReturnOrder(page, order_id)
+    content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.detailDescription___Lrvi9 > div.detailIds___b3ust > div:nth-child(2) > div:nth-child(2)")
+    assert str(content) == str(order_id)
+
+def test_return_refund_order(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+    returnrefund_description = "Return&Refund"+str(int(time.time()))
+    order_client.ReturnRefundShipOrder(page, order_id, returnrefund_description)
+    order_admin.SearchReturnOrder(page, order_id)
+    content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.detailDescription___Lrvi9 > div.detailIds___b3ust > div:nth-child(2) > div:nth-child(2)")
+    assert str(content) == str(order_id)
