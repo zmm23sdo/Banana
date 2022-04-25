@@ -542,3 +542,50 @@ headers = {'Authorization': '4211278B73B3424AB9B6701C83B558F5', 'X-Tenant-Type':
 #     order_admin.SearchReturnOrder(page, order_id)
 #     content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.detailDescription___Lrvi9 > div.detailIds___b3ust > div:nth-child(2) > div:nth-child(2)")
 #     assert str(content) == str(order_id)
+
+# def test_agree_return_order(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+#     login_client.ClientLogin(page, customer_phone, customer_password)
+#     address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+#     search_client.SearchProduct(page, admin_productname)
+#     buy_client.BuyProduct(page)
+#     order_id = order_client.GetOrderId(page, admin_productname)
+#     change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+#     return_description = "Return"+str(int(time.time()))
+#     order_client.ReturnShipOrder(page, order_id, return_description)
+#     order_admin.AgreeReturnOrder(page, order_id)
+#     content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B")
+#     assert str(content) == "To Respond"
+
+# def test_agree_return_order(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+#     login_client.ClientLogin(page, customer_phone, customer_password)
+#     address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+#     search_client.SearchProduct(page, admin_productname)
+#     buy_client.BuyProduct(page)
+#     order_id = order_client.GetOrderId(page, admin_productname)
+#     change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+#     return_description = "Return"+str(int(time.time()))
+#     order_client.ReturnShipOrder(page, order_id, return_description)
+#     reject_reson = "Reject"+str(int(time.time()))
+#     order_admin.RejectReturnOrder(page, order_id, reject_reson)
+#     content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B")
+#     assert str(content) == "Request Cancelled"
+
+def test_confirm_receipt_return_order(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+    return_description = "Return"+str(int(time.time()))
+    order_client.ReturnShipOrder(page, order_id, return_description)
+    order_admin.AgreeReturnOrder(page, order_id)
+    order_admin.ConfirmReceiptRetunOrder(page, order_id)
+    content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B")
+    assert str(content) == "Request Completed"
