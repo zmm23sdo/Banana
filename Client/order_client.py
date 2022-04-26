@@ -106,3 +106,17 @@ def ReturnRefundShipOrder(page,order_id, returnrefund_description):
     page.locator("textarea").fill(returnrefund_description)
     # Click text=Submit
     page.locator("text=Submit").click()
+
+def DeliveryConfirmed(page, order_id):
+    # Go to https://client-banana-dev.chunsutech.com/management/order/list?type=3
+    page.goto("https://client-banana-dev.chunsutech.com/management/order/list?type=3")
+    # Click text=1220426456170000001
+    # with page.expect_navigation(url="https://client-banana-dev.chunsutech.com/management/order/detail?id=1220426456170000001"):
+    with page.expect_navigation():
+        page.locator("text="+order_id).click()
+    # Click text=Delivery Confirmed
+    page.locator("text=Delivery Confirmed").click()
+    # Click span:has-text("Confirm")
+    page.locator("span:has-text(\"Confirm\")").click()
+    # Click .h-44px
+    page.locator(".h-44px").click()

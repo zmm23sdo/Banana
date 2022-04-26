@@ -67,4 +67,23 @@ def ConfirmReceiptRetunOrder(page, order_id):
     page.locator("button:has-text(\"确 认\")").click()
     # Click text=Request Completed
     page.locator("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B").click()
-    
+
+def ArrageShipment(page, order_id, ship_company_id, ship_no):
+    # Go to https://admin-banana-dev.chunsutech.com/order/list
+    page.goto("https://admin-banana-dev.chunsutech.com/order/list")
+    # Fill [placeholder="选择属性项搜索，或者输入关键字识别搜索"]
+    page.locator("[placeholder=\"选择属性项搜索，或者输入关键字识别搜索\"]").fill(order_id)
+    # Click .ant-btn >> nth=0
+    page.locator(".ant-btn").first.click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click button:has-text("Arrange Shipment")
+    page.locator(".ant-btn.ant-btn-default.tableOperationBtn___BlEiX").first.click()
+    # Fill #ship_company_id
+    page.locator("#ship_company_id").fill(ship_company_id)
+    # Fill #ship_no
+    page.locator("#ship_no").fill(ship_no)
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+    # Click .ant-message-custom-content
+    page.locator(".ant-message-custom-content").click()
