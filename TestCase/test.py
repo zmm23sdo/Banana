@@ -632,4 +632,3 @@ headers = {'Authorization': '4211278B73B3424AB9B6701C83B558F5', 'X-Tenant-Type':
 #     content = page.text_content(".h-44px")
 #     assert str(content) == "Completed"
 
-"
