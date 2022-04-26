@@ -201,3 +201,17 @@ def test_arrange_shipment(page):
     order_admin.ArrageShipment(page, order_id, ship_company_id, ship_no)
     content = page.text_content(".ant-message-custom-content")
     assert str(content) == "Arrange Shipment Success!"
+
+def test_change_order_total(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    total_price = "100"
+    ship_price = "50"
+    order_admin.ChangeOrderTotal(page, order_id, total_price, ship_price)
+    content = page.text_content(".ant-message-notice-content")
+    assert str(content) == "Change Price Success!"

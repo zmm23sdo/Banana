@@ -87,3 +87,25 @@ def ArrageShipment(page, order_id, ship_company_id, ship_no):
     page.locator("button:has-text(\"确 认\")").click()
     # Click .ant-message-custom-content
     page.locator(".ant-message-custom-content").click()
+
+def ChangeOrderTotal(page, order_id, total_price, ship_price):
+    # Go to https://admin-banana-dev.chunsutech.com/order/list/
+    page.goto("https://admin-banana-dev.chunsutech.com/order/list/")
+    # Click [placeholder="选择属性项搜索，或者输入关键字识别搜索"]
+    page.locator("[placeholder=\"选择属性项搜索，或者输入关键字识别搜索\"]").click()
+    # Fill [placeholder="选择属性项搜索，或者输入关键字识别搜索"]
+    page.locator("[placeholder=\"选择属性项搜索，或者输入关键字识别搜索\"]").fill(order_id)
+    # Click .ant-btn >> nth=0
+    page.locator(".ant-btn").first.click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click button:has-text("Change Order Total")
+    page.locator(".ant-btn.ant-btn-default.tableOperationBtn___BlEiX").first.click()
+    # Fill text=一口价RM >> [placeholder="请输入"]
+    page.locator("text=一口价RM >> [placeholder=\"请输入\"]").fill(total_price)
+    # Fill text=邮费RM >> [placeholder="请输入"]
+    page.locator("text=邮费RM >> [placeholder=\"请输入\"]").fill(ship_price)
+    # Click button:has-text("确 认")
+    page.locator("button:has-text(\"确 认\")").click()
+    # Click .ant-message-notice-content
+    page.locator(".ant-message-notice-content").click()
