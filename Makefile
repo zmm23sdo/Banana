@@ -14,3 +14,6 @@ PWadmin:
 	python3 -m playwright codegen https://admin-banana-dev.chunsutech.com/
 PWclient:
 	python3 -m playwright codegen https://client-banana-dev.chunsutech.com/
+proxy:
+	git config --global http.proxy socks5://127.0.0.1:1080
+	git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
