@@ -474,6 +474,17 @@ headers = {'Authorization': '4211278B73B3424AB9B6701C83B558F5', 'X-Tenant-Type':
 #     content = page.text_content("div > div > div.MuiAlert-message.css-1w0ym84")
 #     assert str(content) == "Add to cart successfully"
 
+# def test_checkout_cart(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+#     login_client.ClientLogin(page, customer_phone, customer_password)
+#     address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+#     search_client.SearchProduct(page, admin_productname)
+#     buy_client.CartProduct(page)
+#     buy_client.CheckoutCart(page)
+#     content = page.text_content("text=field Signature is not set")
+#     assert str(content) == "field Signature is not set\n
+
 # def test_cancel_order(page):
 #     login_admin.AdminLogin(page,admin_username,admin_password)
 #     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
@@ -620,3 +631,5 @@ headers = {'Authorization': '4211278B73B3424AB9B6701C83B558F5', 'X-Tenant-Type':
 #     order_client.DeliveryConfirmed(page, order_id)
 #     content = page.text_content(".h-44px")
 #     assert str(content) == "Completed"
+
+"

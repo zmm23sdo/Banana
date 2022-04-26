@@ -32,3 +32,15 @@ def CartProduct(page):
     page.locator("#select_drawer div:has-text(\"Add To Cart\")").nth(2).click()
     # Click div[role="alert"]:has-text("Add to cart successfully")
     page.locator("div > div > div.MuiAlert-message.css-1w0ym84").click()
+
+def CheckoutCart(page):
+    # Go to https://client-banana-dev.chunsutech.com/cart
+    page.goto("https://client-banana-dev.chunsutech.com/cart")
+    # Click text=Check Out
+    # with page.expect_navigation(url="https://client-banana-dev.chunsutech.com/cart/order"):
+    with page.expect_navigation():
+        page.locator("text=Check Out").click()
+    # Click text=Place Order
+    page.locator("text=Place Order").click()
+    # Click html
+    page.locator("text=field Signature is not set").click()

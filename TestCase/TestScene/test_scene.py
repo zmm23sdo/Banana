@@ -56,6 +56,17 @@ def test_cart_product(page):
     content = page.text_content("div > div > div.MuiAlert-message.css-1w0ym84")
     assert str(content) == "Add to cart successfully"
     
+def test_checkout_cart(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.CartProduct(page)
+    buy_client.CheckoutCart(page)
+    content = page.text_content("text=field Signature is not set")
+    assert str(content) == "field Signature is not set\n"
+
 def test_cancel_order(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
@@ -190,19 +201,3 @@ def test_arrange_shipment(page):
     order_admin.ArrageShipment(page, order_id, ship_company_id, ship_no)
     content = page.text_content(".ant-message-custom-content")
     assert str(content) == "Arrange Shipment Success!"
-
-def test_delivery_confirmed(page):
-    login_admin.AdminLogin(page,admin_username,admin_password)
-    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
-    login_client.ClientLogin(page, customer_phone, customer_password)
-    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
-    search_client.SearchProduct(page, admin_productname)
-    buy_client.BuyProduct(page)
-    order_id = order_client.GetOrderId(page, admin_productname)
-    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
-    ship_company_id = "ShipCo"+str(int(time.time()))
-    ship_no = str(int(time.time()))
-    order_admin.ArrageShipment(page, order_id, ship_company_id, ship_no)
-    order_client.DeliveryConfirmed(page, order_id)
-    content = page.text_content(".h-44px")
-    assert str(content) == "Completed"
