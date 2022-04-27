@@ -1,4 +1,4 @@
-from Admin import login_admin, roles_admin, user_admin, category_admin, product_admin, resources_admin, order_admin, shipment_admin
+from Admin import login_admin, roles_admin, user_admin, category_admin, product_admin, resources_admin, order_admin, shipment_admin, finance_admin
 from Client import login_client, search_client, buy_client, address_client, order_client
 from API import change_order_status
 import datetime
@@ -692,6 +692,27 @@ continued_weight = "1"
 #     content = page.text_content(".ant-message-notice-content")
 #     assert str(content) == "Delete Template Success!"
 
-def test_modify_calculatefee(page):
+# def test_modify_calculatefee(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     shipment_admin.ModifyCalculateFee(page)
+
+def test_completed_topay(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
-    shipment_admin.ModifyCalculateFee(page)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+    return_description = "Return"+str(int(time.time()))
+    order_client.ReturnShipOrder(page, order_id, return_description)
+    order_admin.AgreeReturnOrder(page, order_id)
+    order_admin.ConfirmReceiptRetunOrder(page, order_id)
+    return_id = order_admin.GetReturnId(page, order_id)
+    actual_amount = "100"
+    # print(f'\norder_id:{order_id}')
+    # print(f'\nreturn_id:{return_id}')
+    finance_admin.CompletedToPay(page,return_id,actual_amount)
+    content = page.text_content("td:nth-child(5)")
+    assert str(content) == "completed"

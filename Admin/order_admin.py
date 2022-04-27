@@ -109,3 +109,23 @@ def ChangeOrderTotal(page, order_id, total_price, ship_price):
     page.locator("button:has-text(\"确 认\")").click()
     # Click .ant-message-notice-content
     page.locator(".ant-message-notice-content").click()
+
+def GetReturnId(page,order_id):
+     # Go to https://admin-banana-dev.chunsutech.com/order/refund/
+    page.goto("https://admin-banana-dev.chunsutech.com/order/refund/")
+    # Click [placeholder="选择属性项搜索，或者输入关键字识别搜索"]
+    page.locator("[placeholder=\"选择属性项搜索，或者输入关键字识别搜索\"]").click()
+    # Fill [placeholder="选择属性项搜索，或者输入关键字识别搜索"]
+    page.locator("[placeholder=\"选择属性项搜索，或者输入关键字识别搜索\"]").fill(order_id)
+    # Click .ant-btn >> nth=0
+    page.locator(".ant-btn").first.click()
+    # Click [aria-label="reload"] svg
+    page.locator("[aria-label=\"reload\"] svg").click()
+    # Click button:has-text("Return/Refund Details")
+    page.locator("#antdTable > tbody > tr:nth-child(3) > td:nth-child(5) > button > span").click()
+    # assert page.url == "https://admin-banana-dev.chunsutech.com/order/refund/detail?id=2220425361520000001"
+    # Click text=2220425361520000001
+    page.locator(".detailIds___b3ust > div:nth-child(1) > div:nth-child(2)").click()
+    content = page.text_content(".detailIds___b3ust > div:nth-child(1) > div:nth-child(2)")
+    return_id = str(content)
+    return return_id

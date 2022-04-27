@@ -1,4 +1,4 @@
-from Admin import login_admin, product_admin, order_admin
+from Admin import login_admin, product_admin, order_admin, finance_admin
 from Client import login_client, search_client, buy_client, address_client, order_client
 from API import change_order_status
 import datetime
@@ -139,23 +139,7 @@ def test_agree_return_order(page):
     content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B")
     assert str(content) == "To Respond"
 
-def test_agree_return_order(page):
-    login_admin.AdminLogin(page,admin_username,admin_password)
-    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
-    login_client.ClientLogin(page, customer_phone, customer_password)
-    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
-    search_client.SearchProduct(page, admin_productname)
-    buy_client.BuyProduct(page)
-    order_id = order_client.GetOrderId(page, admin_productname)
-    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
-    return_description = "Return"+str(int(time.time()))
-    order_client.ReturnShipOrder(page, order_id, return_description)
-    reject_reson = "Reject"+str(int(time.time()))
-    order_admin.RejectReturnOrder(page, order_id, reject_reson)
-    content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B")
-    assert str(content) == "Request Cancelled"
-
-def test_agree_return_order(page):
+def test_reject_return_order(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
     login_client.ClientLogin(page, customer_phone, customer_password)
@@ -215,3 +199,24 @@ def test_change_order_total(page):
     order_admin.ChangeOrderTotal(page, order_id, total_price, ship_price)
     content = page.text_content(".ant-message-notice-content")
     assert str(content) == "Change Price Success!"
+
+def test_completed_topay(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+    return_description = "Return"+str(int(time.time()))
+    order_client.ReturnShipOrder(page, order_id, return_description)
+    order_admin.AgreeReturnOrder(page, order_id)
+    order_admin.ConfirmReceiptRetunOrder(page, order_id)
+    return_id = order_admin.GetReturnId(page, order_id)
+    actual_amount = "100"
+    # print(f'\norder_id:{order_id}')
+    # print(f'\nreturn_id:{return_id}')
+    finance_admin.CompletedToPay(page,return_id,actual_amount)
+    content = page.text_content("td:nth-child(5)")
+    assert str(content) == "completed"
