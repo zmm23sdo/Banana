@@ -683,11 +683,15 @@ continued_weight = "1"
 #     content = page.text_content("text="+module_change_name)
 #     assert str(content) != str(module_change_name)
 
-def test_delete_delivery(page):
+# def test_delete_delivery(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     module_name=module_name_pkg
+#     shipment_admin.CreateDeliveryPKG(page, module_name, first_piece, freight, continuation, rnenw)
+#     shipment_admin.SearchDelivery(page, module_name)
+#     shipment_admin.DeleteDelivery(page)
+#     content = page.text_content(".ant-message-notice-content")
+#     assert str(content) == "Delete Template Success!"
+
+def test_modify_calculatefee(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
-    module_name=module_name_pkg
-    shipment_admin.CreateDeliveryPKG(page, module_name, first_piece, freight, continuation, rnenw)
-    shipment_admin.SearchDelivery(page, module_name)
-    shipment_admin.DeleteDelivery(page)
-    content = page.text_content(".ant-message-notice-content")
-    assert str(content) == "Delete Template Success!"
+    shipment_admin.ModifyCalculateFee(page)

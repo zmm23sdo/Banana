@@ -144,3 +144,12 @@ def DeleteDelivery(page):
     # Click .ant-message-notice-content
     page.locator(".ant-message-notice-content").click()
 
+def ModifyCalculateFee(page):
+    # Go to https://admin-banana-dev.chunsutech.com/logistics/fee_management
+    page.goto("https://admin-banana-dev.chunsutech.com/logistics/fee_management")
+    # Click text=Modify
+    page.locator("text=Modify").click()
+    # Click input[type="radio"] >> nth=1
+    page.locator("input[type=\"radio\"]").nth(1).click()
+    # Click [aria-label="check"] svg
+    page.locator("[aria-label=\"check\"] svg").click()

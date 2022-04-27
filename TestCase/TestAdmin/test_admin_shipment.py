@@ -50,3 +50,7 @@ def test_delete_delivery(page):
     shipment_admin.DeleteDelivery(page)
     content = page.text_content(".ant-message-notice-content")
     assert str(content) == "Delete Template Success!"
+
+def test_modify_calculatefee(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    shipment_admin.ModifyCalculateFee(page)
