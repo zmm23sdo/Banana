@@ -166,10 +166,29 @@ def test_confirm_receipt_return_order(page):
     change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
     return_description = "Return"+str(int(time.time()))
     order_client.ReturnShipOrder(page, order_id, return_description)
+    print(f'\norder_id:{order_id}')
     order_admin.AgreeReturnOrder(page, order_id)
     order_admin.ConfirmReceiptRetunOrder(page, order_id)
     content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B")
     assert str(content) == "Request Completed"
+
+def test_cancel_receipt_return_order(page):
+    login_admin.AdminLogin(page,admin_username,admin_password)
+    product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+    login_client.ClientLogin(page, customer_phone, customer_password)
+    address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+    search_client.SearchProduct(page, admin_productname)
+    buy_client.BuyProduct(page)
+    order_id = order_client.GetOrderId(page, admin_productname)
+    change_order_status.ipay88Complete(payment_number=order_id, headers=headers)
+    return_description = "Return"+str(int(time.time()))
+    order_client.ReturnShipOrder(page, order_id, return_description)
+    print(f'\norder_id:{order_id}')
+    order_admin.AgreeReturnOrder(page, order_id)
+    cancel_reson = "Cancel"+str(int(time.time()))
+    order_admin.CancelReceiptRetunOrder(page, order_id, cancel_reson)
+    content = page.text_content("#root > div > section > div.ant-layout > main > div > div.ant-pro-grid-content > div > div > div > div.ant-col.ant-col-16 > div.top___1xk1t > div.topName___qj6_B")
+    assert str(content) == "Request Cancelled"
 
 def test_arrange_shipment(page):
     login_admin.AdminLogin(page,admin_username,admin_password)
