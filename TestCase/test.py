@@ -756,10 +756,10 @@ min_price = "1"
 #     content = page.text_content(".ant-message-notice-content")
 #     assert str(content) == "Create Success!"
 
-def  test_delete_voucher(page):
-    login_admin.AdminLogin(page,admin_username,admin_password)
-    voucher_name = voucher_name_percent
-    tools_admin.CreateVoucherPercentage(page,voucher_name, voucher_code, amount, usage_quantity,min_price)
-    tools_admin.DeleteVoucher(page)
-    content = page.text_content(".ant-table-container > div > table > tbody > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1)")
-    assert str(content) != str(voucher_code)
+# def  test_delete_voucher(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     voucher_name = voucher_name_percent
+#     tools_admin.CreateVoucherPercentage(page,voucher_name, voucher_code, amount, usage_quantity,min_price)
+#     tools_admin.DeleteVoucher(page)
+#     content = page.text_content(".ant-table-container > div > table > tbody > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1)")
+#     assert str(content) != str(voucher_code)
