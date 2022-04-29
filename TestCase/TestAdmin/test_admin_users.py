@@ -32,7 +32,7 @@ def test_delete_user(page):
     user_admin.CreateUser(page, admin_new_username, admin_new_fullname, admin_new_email, admin_new_password)
     user_admin.DeleteUser(page,admin_new_username)
     content = page.text_content(".ant-message-notice-content")
-    assert content == "user.delete.success"#    User deleted successfully
+    assert content == "Delete Success!"#    User deleted successfully
 
 def test_reset_password(page):
     login_admin.AdminLogin(page,admin_username,admin_password)

@@ -85,7 +85,7 @@ admin_new_password = "qwer`123"
 #     user_admin.CreateUser(page, admin_new_username, admin_new_fullname, admin_new_email, admin_new_password)
 #     user_admin.DeleteUser(page,admin_new_username)
 #     content = page.text_content(".ant-message-notice-content")
-#     assert content == "user.delete.success"#    文案待换
+#     assert content == "Delete Success!"#    文案待换
 
 # def test_reset_password(page):
 #     login_admin.AdminLogin(page,admin_username,admin_password)
@@ -763,3 +763,15 @@ min_price = "1"
 #     tools_admin.DeleteVoucher(page)
 #     content = page.text_content(".ant-table-container > div > table > tbody > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1)")
 #     assert str(content) != str(voucher_code)
+
+# def test_buy_with_voucher(page):
+#     login_admin.AdminLogin(page,admin_username,admin_password)
+#     product_admin.CreateProductBasic(page, admin_productname, admin_product_description, admin_product_price, admin_product_stock, admin_product_weight, admin_product_freight)
+#     voucher_name = voucher_name_percent
+#     tools_admin.CreateVoucherPercentage(page,voucher_name, voucher_code, amount, usage_quantity,min_price)
+#     login_client.ClientLogin(page, customer_phone, customer_password)
+#     address_client.AddAddress(page, fullname, phonenumber, zipcode, detail)
+#     search_client.SearchProduct(page, admin_productname)
+#     buy_client.BuyWithVoucher(page, voucher_code)
+#     content = page.text_content("text=field Signature is not set")
+#     assert str(content) == "field Signature is not set\n"

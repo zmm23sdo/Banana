@@ -10,10 +10,9 @@ def SearchProduct(page, admin_productname):
     page.locator("[placeholder=\"Search\\ Product\"]").click()
     # Fill [placeholder="Search\ Product"]
     # with page.expect_navigation(url="https://client-banana-dev.chunsutech.com/shop/search?s=Product2022-04-18+15%3A31%3A41"):
-    with page.expect_navigation():
-        page.locator("[placeholder=\"Search\\ Product\"]").fill(admin_productname)
+    page.locator("[placeholder=\"Search\\ Product\"]").fill(admin_productname)
     # Click text=Search
-    page.locator("#root-box > div.h-60px.flex.justify-around.items-center.pl-2.pr-0\.5.bg-white > div.min-w-min.p-2\.5.cursor-pointer > div").click()
+    page.locator(".cursor-pointer > div").first.click()
 
 def SearchOrder(page, admin_productname):
     # Go to https://client-banana-dev.chunsutech.com/management/order/list?type=0
