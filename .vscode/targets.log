@@ -1,0 +1,318 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
+
+
+# Make data base, printed on Wed Jun  1 15:30:17 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+GATEWAY_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/gateway.vmoptions
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+WEBSTORM_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/webstorm.vmoptions
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/michaelcheung/Project/Banana
+# makefile
+SHELL = /bin/sh
+# environment
+APPCODE_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/appcode.vmoptions
+# environment
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"42e84e0914b17800d483f69e299e1b00.zh-cn","_translationsConfigFile":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/tcf.json","_cacheRoot":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn","_resolvedLanguagePackCoreLocation":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+WEBIDE_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/webide.vmoptions
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/kh/sg37g_qj6sv50lwh0vmj4frh0000gn/T/vscode-ipc-d4be33e9-28c9-4a09-9784-0ac6860fefae.sock
+# environment
+VSCODE_CWD = /
+# environment
+ 
+PATH = /usr/local/bin:/opt/anaconda3/condabin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin
+# environment
+PHPSTORM_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/phpstorm.vmoptions
+# environment
+GOLAND_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/goland.vmoptions
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+JETBRAINSCLIENT_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/jetbrainsclient.vmoptions
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+IDEA_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/idea.vmoptions
+# environment
+DATASPELL_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/dataspell.vmoptions
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.SJE8AUS8UL/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+CONDA_EXE = /opt/anaconda3/bin/conda
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /Users/michaelcheung/Project/Banana
+# environment
+JETBRAINS_CLIENT_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/jetbrains_client.vmoptions
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/michaelcheung
+# environment
+RIDER_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/rider.vmoptions
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/michaelcheung/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+# environment
+LOGNAME = michaelcheung
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = michaelcheung
+# makefile
+.DEFAULT_GOAL := testA
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+CONDA_SHLVL = 0
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/kh/sg37g_qj6sv50lwh0vmj4frh0000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/michaelcheung/Library/Application Support/Code/1.67.2-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.24858846.24858852
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+DATAGRIP_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/datagrip.vmoptions
+# automatic
++F = $(notdir $+)
+# environment
+RUBYMINE_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/rubymine.vmoptions
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x19:0x34
+# environment
+PYCHARM_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/pycharm.vmoptions
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+CONDA_PYTHON_EXE = /opt/anaconda3/bin/python
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+_CE_M = 
+# environment
+MAKELEVEL := 0
+# environment
+CLION_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/clion.vmoptions
+# environment
+LANG = C
+# environment
+VSCODE_PID = 46250
+# environment
+_CE_CONDA = 
+# variable set hash-table stats:
+ 
+# Load=81/1024=8%, Rehash=0, Collisions=1/104=1%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777233, inode 17148680): 16 files, no impossibilities.
+
+# 16 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+debugC:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 8):
+	PWDEBUG=1 python3 -m pytest -s --headed TestCase/TestClient/test_buy.py
+	
+
+# Not a target:
+all:
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+testC:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 4):
+	python3 -m pytest -s --headed TestCase/TestClient/test_buy.py
+	
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-26 18:51:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+PWadmin:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 14):
+	python3 -m playwright codegen https://admin-banana-dev.chunsutech.com/
+	
+
+proxy:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 18):
+	git config --global http.proxy socks5://127.0.0.1:1080
+	git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+	
+
+debug:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 12):
+	PWDEBUG=1 python3 -m pytest -s --headed TestCase/test.py
+	
+
+test:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 10):
+	python3 -m pytest -s --headed TestCase/test.py
+	
+
+debugA:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 6):
+	PWDEBUG=1 python3 -m pytest -s --headed TestCase/TestAdmin/test_create_product.py
+	
+
+testA:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 2):
+	python3 -m pytest -s --headed TestCase/TestAdmin/test_create_product.py
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+PWclient:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 16):
+	python3 -m playwright codegen https://client-banana-dev.chunsutech.com/
+	
+
+# files hash-table stats:
+# Load=13/1024=1%, Rehash=0, Collisions=0/25=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Wed Jun  1 15:30:17 2022
+
+ 
