@@ -10,19 +10,16 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sun Jun  5 11:37:41 2022
+# Make data base, printed on Mon Jul 25 16:15:41 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
- 
 # automatic
 ?F = $(notdir $?)
 # environment
 GATEWAY_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/gateway.vmoptions
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
@@ -38,19 +35,15 @@ SHELL = /bin/sh
 # environment
 APPCODE_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/appcode.vmoptions
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"42e84e0914b17800d483f69e299e1b00.zh-cn","_translationsConfigFile":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/tcf.json","_cacheRoot":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn","_resolvedLanguagePackCoreLocation":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"42e84e0914b17800d483f69e299e1b00.zh-cn","_translationsConfigFile":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/tcf.json","_cacheRoot":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn","_resolvedLanguagePackCoreLocation":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/Users/michaelcheung/Library/Application Support/Code/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 WEBIDE_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/webide.vmoptions
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/kh/sg37g_qj6sv50lwh0vmj4frh0000gn/T/vscode-ipc-75e38955-86e3-4471-b6d9-1e2b7b7adf46.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -60,10 +53,6 @@ PHPSTORM_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/ph
 # environment
 GOLAND_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/goland.vmoptions
 # environment
-LaunchInstanceID = 1497ED94-FDE5-4569-8D38-975D68D2410E
-# environment
-VSCODE_LOG_STACK = false
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
 JETBRAINSCLIENT_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/jetbrainsclient.vmoptions
@@ -71,16 +60,15 @@ JETBRAINSCLIENT_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmopt
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
 IDEA_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/idea.vmoptions
+ 
 # environment
 DATASPELL_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/dataspell.vmoptions
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9ttIAi7iTS/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ngRn2JGeoM/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 CONDA_EXE = /opt/anaconda3/bin/conda
-# environment
-VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /Users/michaelcheung/Project/Banana
 # environment
@@ -96,7 +84,7 @@ RIDER_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/rider
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/michaelcheung/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /Users/michaelcheung/Library/Application Support/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LOGNAME = michaelcheung
 # environment
@@ -132,16 +120,17 @@ TMPDIR = /var/folders/kh/sg37g_qj6sv50lwh0vmj4frh0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/michaelcheung/Library/Application Support/Code/1.67.2-main.sock
+VSCODE_IPC_HOOK = /Users/michaelcheung/Library/Application Support/Code/1.69.2-main.sock
+# environment
+MallocNanoZone = 0
 # makefile
 MAKEFLAGS = Rrqp
 # environment
 MFLAGS = -Rrqp
 # automatic
- 
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.26751679.26751685
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.32069887.32069893
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -156,6 +145,7 @@ __CF_USER_TEXT_ENCODING = 0x1F5:0x19:0x34
 PYCHARM_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/pycharm.vmoptions
 # environment
 COMMAND_MODE = unix2003
+ 
 # default
 MAKEFILES := 
 # automatic
@@ -164,8 +154,6 @@ MAKEFILES :=
 LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /opt/anaconda3/bin/python
-# environment
-SECURITYSESSIONID = 186ad
 # automatic
 ^F = $(notdir $^)
 # default
@@ -179,21 +167,21 @@ CLION_VM_OPTIONS = /Users/michaelcheung/Desktop/ja-netfilter-all/vmoptions/clion
 # environment
 LANG = C
 # environment
-VSCODE_PID = 8894
+VSCODE_PID = 72277
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
  
-# Load=83/1024=8%, Rehash=0, Collisions=1/106=1%
+# Load=77/1024=8%, Rehash=0, Collisions=1/100=1%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
- 
 
-# . (device 16777232, inode 17148680): 16 files, no impossibilities.
+ 
+# . (device 16777231, inode 17148680): 16 files, no impossibilities.
 
 # 16 files, no impossibilities in 1 directories.
 
@@ -258,7 +246,6 @@ proxy:
 #  commands to execute (from `Makefile', line 18):
 	git config --global http.proxy socks5://127.0.0.1:1080
 	git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
- 
 	
 
 debug:
@@ -320,6 +307,6 @@ PWclient:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Jun  5 11:37:41 2022
+# Finished Make data base on Mon Jul 25 16:15:41 2022
 
  
